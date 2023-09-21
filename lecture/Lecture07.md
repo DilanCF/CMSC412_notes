@@ -9,7 +9,7 @@ This is the entity that processes control. Managed by the OS by the processes
 
 Each process has its address space, stacks, heaps, etc.  
 
-How does OS managed it? Through Process Control Block (PCB)  
+How does OS manage it? Through Process Control Block (PCB)  
 * Must keep track of the management of the process  
 
 ![Alt text](img/Lecture07/image-1.png)  
