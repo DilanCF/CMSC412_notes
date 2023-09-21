@@ -1,4 +1,4 @@
-# CMSC412 Lecture 5  
+# CMSC412 Lecture 6  
 > 9-14  
 
 ## Processes  
