@@ -135,7 +135,7 @@ Waiting for mutexes happens in the wait queue
 
 ![Alt text](image-21.png)  
 
-We have to make sure the mutex is atomic in order to ensure that nothing gets interrupted during the mutex init and stuff ???  
+We have to make sure the mutex is atomic in order to ensure that nothing gets interrupted during the mutex init and stuff  
 
 ![Alt text](image-22.png)  
 
@@ -169,7 +169,6 @@ If every thread has 100k CS, everyone will need to wait for it
 ![Alt text](image-33.png)  
 
 We run 2 threads, running synch. Will we get problems?  
-*???*
 * If T1 wants to block on A, but T2 has it, we run into deadlock  
 
 ![Alt text](image-34.png)  
