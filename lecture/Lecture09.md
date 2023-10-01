@@ -1,5 +1,5 @@
 # CMSC412 Lecture 9  
-> 9-25  
+> 9-26  
 
 *Watching 2019 recordings*  
 
@@ -11,11 +11,11 @@ Synchronization: Many techniques
 
 Why?:  
 * Whenever we are talking about any of the modern computer systems, there are multiple concurrencies
-* When they are separate, esy to manage
+* When they are separate, easy to manage
 * But nowadays, almost all of them are sharing resources  
 
-KEy Idea:  
-* Permits us, when writing progs, to have certainty they ill behave  
+Key Idea:  
+* Permits us, when writing progs, to have certainty they will behave  
 
 We want certain conditions to be followed  
 
@@ -30,16 +30,16 @@ Known as Mutually Exclusive (Mutex)
 Atomic action:  
 * Action is atomic means whatever action it is, it must be done *completely*, or it doesn't get done at all  
 
-IN the middle of the execution of this action, it cannot be interrupted  
+In the middle of the execution of this action, it cannot be interrupted  
 
 Why atomic?:
 * Updating memory
 
 There are some architectures where updating is done via more than one instruction  
 
-interrupts that come about are part of the execution of instruction  
+Interrupts that come about are part of the execution of instruction  
 
-ANy outside interrupts, CPU only checks for it at the end of said atomic action  
+Any outside interrupts, CPU only checks for it at the end of said atomic action  
 
 Execution of every instruction at a machine level is atomic!  
 * Some exceptions ofc  
