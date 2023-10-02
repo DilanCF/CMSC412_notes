@@ -80,7 +80,7 @@ Address space is a virtual concept. Must be mapped to physical in order to be us
 
 **This is a general mapping concept!!**  
 
-The better you know how the details work, the better programmer you will be  
+*"The better you know how the details work, the better programmer you will be"*  
 > AA, 2023  
 
 Most of the latest archs are backwards compatible  
@@ -340,4 +340,4 @@ Task == Process
 
 
 
-I hecking LOVE when professors fly through slides and read off the slides verbatim for half the class!!!!!
+I hecking LOVE when professors fly through slides and read off the slides verbatim for half the class!!!!! ![Alt text](img/Lecture03/image-53.png)
