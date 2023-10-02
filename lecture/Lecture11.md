@@ -103,6 +103,12 @@ E.g:
 
    * Therefore, process can request resources in increasing order. If any process tries to request a #1 resource after requesting and being granted a #4 resource, it is ~~told to fuck off~~ not given the resource  
 
+![Alt text](image.png)  
+
+Here ^ is an example of what I said. In case you can't read my god-awful no-improvement-since-2nd-grade handwriting:  
+
+> Here, P<sub>1</sub> has requested and was granted R<sub>1</sub> which is numbered 1. It now requests R<sub>2</sub>, which is allowed since R<sub>2</sub> is numbered 3, and the requests are done in ascending order. P<sub>2</sub> has requested and was granted R<sub>2</sub> w/#3. However, when it requests R<sub>1</sub>, it cannot do so since the request is in descending order  
+
 
 ![Alt text](img/Lecture11/image-15.png)  
 
