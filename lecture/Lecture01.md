@@ -4,7 +4,7 @@
 ## Course Overview  
 
 Only 4 credit 400 level course  
-Very tough TM  
+Very tough<sup>TM</sup>  
 
 Prof. has been here for 53 years  
 
