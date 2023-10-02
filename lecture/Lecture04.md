@@ -11,12 +11,12 @@
 
 APIC: ... Interrupt controller  
 
-4 CPUs that have a shared bus. Bus moves the bits around. If an interupt needs to be moved from one CPU to the other, use the bus  
+4 CPUs that have a shared bus. Bus moves the bits around. If an interrupt needs to be moved from one CPU to the other, use the bus  
 
 *Remember*: INterrupt == HW  
 
 How does a CPU know an interrupt on the bus is its own?  
-* Bus has to have address lines. That way, if interupt is in CPU0's address, CPU0 knows it has an interrupt   
+* Bus has to have address lines. That way, if interrupt is in CPU0's address, CPU0 knows it has an interrupt   
 
 diskc: kernel image, functioning in virtual environment  
 
@@ -49,7 +49,7 @@ eflag contains current state of execution
 ![Alt text](img/Lecture04/image-6.png)  
 
 Disable/restore interrupts 
-* There are certain functinos that we carry out that we dont want to stop in the middle of process  
+* There are certain functions that we carry out that we don't want to stop in the middle of process  
 
 ![Alt text](img/Lecture04/image-7.png)  
 
@@ -67,7 +67,7 @@ Supports are specified, and are accessed by IO instr
 
 Keyboard data is used as input  
 
-No output to the keyboard, thfr no output resgister  
+No output to the keyboard, therefore no output register  
 
 ![Alt text](img/Lecture04/image-11.png)  
 
@@ -97,7 +97,8 @@ Will not be using DMA too much
 ![Alt text](img/Lecture04/image-15.png)  
 
 During setup, interrupts are handled by the BIOS  
-chnge to OS of CPU
+
+Change to OS of CPU
 
 ![Alt text](img/Lecture04/image-16.png)  
 
@@ -129,7 +130,7 @@ User SS: Stack Segment
 
 ![Alt text](img/Lecture04/image-25.png)  
 
-User process does not have access to the kernel space. Therefore, must have process that can call somthing in the kernel *???* (Slide 31)  
+User process does not have access to the kernel space. Therefore, must have process that can call something in the kernel *???* (Slide 31)  
 
 ![Alt text](img/Lecture04/image-26.png)  
 
@@ -139,8 +140,8 @@ Many mechanisms for this require OS support
 
 Atomic action *???*  
 
-If, due to Atomic action, there are instrucitons we cannot execute. We need to wait. How?  
-* SPinlock  
+If, due to Atomic action, there are instructions we cannot execute. We need to wait. How?  
+* Spinlock  
 
 ![Alt text](img/Lecture04/image-27.png)  
 
@@ -174,7 +175,7 @@ Low-lvl interrupt handling
 
 ![Alt text](img/Lecture04/image-34.png)  
 
-HOw long will this ^ take?  
+How long will this ^ take?  
 * Ans: very Fast (TM)  
 
 ![Alt text](img/Lecture04/image-35.png)  
@@ -203,7 +204,7 @@ FIle systems are collections of directories
 
 ![Alt text](img/Lecture04/image-42.png)  
 
-FAT: FIle Allocation Table  
+FAT: File Allocation Table  
 
 ![Alt text](img/Lecture04/image-43.png)  
 

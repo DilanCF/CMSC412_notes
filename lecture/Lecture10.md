@@ -5,7 +5,7 @@
 
 ![Alt text](img/Lecture10/image.png)   
 
-So far: Various kinds of synch probs and issues
+So far: Various kinds of synch problems and issues
 * Many mechanisms to fix them  
 
 Common denominator: atomic action  
@@ -62,7 +62,7 @@ How many readers are accepted, etc.
 Who has priority here?  
 * Readers? 
 
-When we are taking a look at synch probs, it depends on how we identify the params  
+When we are taking a look at synch problems, it depends on how we identify the params  
 
 Once we define reader, any N of readers exist. Same goes for writers  
 
@@ -88,7 +88,7 @@ Monitor solution: See Neso Academy video
 
 Since we only have one process in the monitor at a time, all actions that happen in the monitor are atomic by virtue of being in the monitor  
 
-Depending on the process of the routine it is executing, if that routine has some wait on conds, it is put in wait queue. No value asocc. with wait and signal. Not the case here. 
+Depending on the process of the routine it is executing, if that routine has some wait on conditions, it is put in wait queue. No value associated with wait and signal. Not the case here. 
 
 We define states for each phil:
 * Thinking, Hungry, and Eating  
@@ -100,7 +100,7 @@ We define states for each phil:
 
 `putdown`
 * Change state to thinking
-* test L and R neighbors  
+* test L and R neighbors
 
 `test` is an internal function for the monitor  
 

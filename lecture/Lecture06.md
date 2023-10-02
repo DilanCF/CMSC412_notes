@@ -197,7 +197,7 @@ How many buffers should we have?
 
 ![Alt text](img/Lecture06/image-32.png)  
 
-Can a reciever reader read the buffer without the producer having placed anything in it?  
+Can a receiver reader read the buffer without the producer having placed anything in it?  
 
 * N OMEGALUL  
 

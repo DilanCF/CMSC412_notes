@@ -11,16 +11,16 @@ Act>: Executional programs
 
 Property of objects:
 * Safety
-  * conrern at many leveles
+  * Concern at many levels
   * security and protection
   * modifying things
 
 Property of activity
 * Liveness
-  * Levels: mesgages
-  * will a prog execite
+  * Levels: messages
+  * Will a prog execute?  
 
-violating safety
+Violating safety
 * scheduler can interleave or overlap threads 
   * Leads to storage corruption
   * violation of representation invariant
@@ -32,20 +32,20 @@ violating safety
 
 ![Alt text](img/Lecture08/image-1.png)  
 
-Processes are independent, how can they share resourcees?
+Processes are independent, how can they share resources?
 * Sharing CPU, memory, etc.  
 
 These are essential for systematic function of computer  
 
 Shared resources  
 
-Responsibilty of OS to protect these resources  
+Responsibility of OS to protect these resources  
 * Must be done in SW, there is a lot of information to handle
 
 When something is done in HW, we do not carry it out in execution in Fetch decode exec system
 * Ex. Memory setup  
 
-Provides processes way to protect their own abstracitons
+Provides processes way to protect their own abstractions
 
 Producer-consumer problem:
 * 2 threads, one makes, one takes
@@ -88,7 +88,7 @@ But what happens when I run it again?
 
 Racing: Depending on the order in which you type stuff, you get different things for each execution  
 
-Is cpoying an atomic action?
+Is copying an atomic action?
 * ye lol  
 
 Very rare that you interrupt something during instruction  
@@ -98,7 +98,7 @@ exec. of instruction is atomic
 
 IN paging, we'll see how opcode goes to an address that is not available  
 
-We sdont wan to make this visible to the program at all!  
+We don't want to make this visible to the program at all!  
 
 How avoid this?
 * Save state as it was before the start of instr
@@ -115,7 +115,7 @@ Schedulers are time-dependent, and are therefore hard to debug
 
 But we run into the same issue!  
 
-Question: If you run program with race cond, will you *ALways* get unexpected result?
+Question: If you run program with race condition, will you *Always* get unexpected result?
 
 ![Alt text](img/Lecture08/image-18.png)  
 
@@ -224,7 +224,7 @@ Does the bakery algorithm work?
 
 Appropriate safety measure have been taken for this  
 
-Theses are for a centralized method for shared mmory  
+Theses are for a centralized method for shared memory  
 
 Have glossed over other details  
 

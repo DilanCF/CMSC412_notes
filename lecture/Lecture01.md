@@ -30,7 +30,7 @@ What *is* a computer?
 
 What is a CPU?  
 * **C**entral **P**rocessing **U**nit  
-* Different CPUs have different structions  
+* Different CPUs have different instructions  
 
 How do our peripherals communicate with the CPU?  
 * Each of the devices are capable of execing instructions.
@@ -42,7 +42,7 @@ The way we have designed computers there are various CPS that process instrs. So
 * Analog conversion to digital number on a display  
 * Uses sensor to find the analog amount
 * How does this number get to the display?
-* Generate the right electircity to display it
+* Generate the right electricity to display it
 
 Do the programs on the device change?  
 We refer to these dedicated coding as **firmware**  

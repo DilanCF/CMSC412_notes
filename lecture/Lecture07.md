@@ -139,7 +139,7 @@ POSIX is a specification of how the API should work, NOT the actual moving parts
 
 ![Alt text](img/Lecture07/image-22.png)  
 
-Pthreads may be a kernel thread, or not. Depends on how it is called  
+PThreads may be a kernel thread, or not. Depends on how it is called  
 
 ![Alt text](img/Lecture07/image-23.png)  
 

@@ -5,11 +5,11 @@
 
 ## Deadlocks  
 
-*We already covered some of the first portion in the previous lecture, but I'm gonna start from the beginning anyways becaouse FYATHYRIO*  
+*We already covered some of the first portion in the previous lecture, but I'm gonna start from the beginning anyways because FYATHYRIO*  
 
 ![Alt text](img/Lecture11/image.png)  
 
-Deadlocks occur when there are a colleciton of processes that cannot make progreess  
+Deadlocks occur when there are a collection of processes that cannot make progress  
 
 ![Alt text](img/Lecture11/image-1.png)  
 
@@ -19,9 +19,9 @@ The model we work with ^
 
 We ask for resource, and wait for OS to give us resource  
 * While we wait for that resource, we are in a queue  
-* ewach recourse type has certain amount of instances  
+* Each recourse type has certain amount of instances  
 
-By definiton, no one process will hold onto a resource forever  
+By definition, no one process will hold onto a resource forever  
 
 In practice, this may happen though  
 
@@ -49,11 +49,11 @@ When there is an edge from Resource->Process, that is a Grant/Hold
 
 ![Alt text](img/Lecture11/image-8.png)  
 
-R<sub>2</sub> holds 2 instances of itself. R<sub>4</sub> holds 4 of itself. P<sub>1,2</sub> are both holding both of the instances of R<sub>2</sub>. P<sub>1</sub> resuests R<sub>1</sub> while R<sub>1</sub> itself is granting P<sub>2</sub>, which in turn is requesting R<sub>3</sub>, which in turn is granting P<sub>3</sub> *whew*.  
+R<sub>2</sub> holds 2 instances of itself. R<sub>4</sub> holds 4 of itself. P<sub>1,2</sub> are both holding both of the instances of R<sub>2</sub>. P<sub>1</sub> requests R<sub>1</sub> while R<sub>1</sub> itself is granting P<sub>2</sub>, which in turn is requesting R<sub>3</sub>, which in turn is granting P<sub>3</sub> *whew*.  
 
 <sub>oh and also R<sub>4</sub> is all alone veri sed</sub>  
 
-Note that, since there is no cycle in this graph, we can confidently say there is no deadlock possible. However, the inverese is NOT true.  
+Note that, since there is no cycle in this graph, we can confidently say there is no deadlock possible. However, the inverse is NOT true.  
 * If there is a cycle, there MAY or MAY NOT be a deadlock possible  
 
 ![Alt text](img/Lecture11/image-9.png)  
@@ -74,7 +74,7 @@ These explain how to find deadlocks in cyclic graphs
 
 4 methods:  
 1. Prevention
-2. Aviodance
+2. Avoidance
 3. Allow & Recover
 4. Ignore  
 
@@ -82,7 +82,7 @@ These explain how to find deadlocks in cyclic graphs
 
 ![Alt text](img/Lecture11/image-14.png)  
 
-Making each of the reqs. for dealock false: 
+Making each of the reqs. for deadlock false: 
 * Mutual exclusion:
   * Make the resources sharable
   * Not possible in some cases (printer)
@@ -106,7 +106,7 @@ E.g:
 
 ![Alt text](img/Lecture11/image-15.png)  
 
-We dont guarantee prevention, we merely avoid it  
+We don't guarantee prevention, we merely avoid it  
 
 ![Alt text](img/Lecture11/image-16.png)  
 
@@ -171,7 +171,7 @@ Note: This is only for single instance of resource
 
 We need to do a slightly different version of the bankers algo.  
 
-The main difference between Bankers and Detection is that in Banker's, we know beforehand the maximum resources that each process needs in order to function correctly. Based on the max and how many resources are avaliable, we determine if we can complete the i<sup>th</sup> process. If not, we continue untill enough resources are available to complete it. The detection algorithm works off of requests. IOW, we already have resources allocated (just like in Banker's), however we are asking for additional resources with no regard as to whether it is the max amount of resources that the particular process needs.  
+The main difference between Bankers and Detection is that in Banker's, we know beforehand the maximum resources that each process needs in order to function correctly. Based on the max and how many resources are available, we determine if we can complete the i<sup>th</sup> process. If not, we continue until enough resources are available to complete it. The detection algorithm works off of requests. IOW, we already have resources allocated (just like in Banker's), however we are asking for additional resources with no regard as to whether it is the max amount of resources that the particular process needs.  
 
 ![Alt text](img/Lecture11/image-36.png)  
 

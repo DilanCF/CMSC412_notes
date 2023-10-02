@@ -10,7 +10,7 @@
 Synchronization: Many techniques  
 
 Why?:  
-* Whenever we are talking about any of the modern computer systems, there are multiple concurrencies
+* Whenever we are talking about any of the modern computer systems, there are multiple concurrences
 * When they are separate, easy to manage
 * But nowadays, almost all of them are sharing resources  
 
