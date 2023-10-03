@@ -116,11 +116,11 @@ mutex: Mutual Exclusion
 
 ![Alt text](img/Lecture04/image-21.png)  
 
-![Alt text](image-22.png)  
+![Alt text](img/Lecture04/image-22.png)  
 
-![Alt text](image-23.png)  
+![Alt text](img/Lecture04/image-23.png)  
 
-![Alt text](image-24.png)  
+![Alt text](img/Lecture04/image-24.png)  
 
 UC: User context  
 
