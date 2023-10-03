@@ -235,6 +235,7 @@ Very context-dependent
 For now, assume all buffering to be FIFO  
 
 **Double buffering: Look up**  
+Double buffering: Double Buffering refers to minimizing the delay that occurs between input and output operations in database management systems that use a buffer. Double buffering saves time and allows multiple processes to run simultaneously. It allows one set of data to be used while another set of data is collected, and then these two sets of data switch places.  
 
 ![Alt text](img/Lecture06/image-43.png)  
 

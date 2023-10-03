@@ -23,8 +23,9 @@ Can we write a program that has no IO?
 
 When we go to disk drives, sector-organized. We want to have some structure on top to make it more readable  
 
-2 types of communication:
-* Interprocess communication
+2 steps to Interprocess communication:  
+* Shared memory: A section of memory shared by multiple processes and used for message passing.  
+* Message passing: A method of sharing data in which messages are sent and received by processes. Packets of information in predefined formats are moved between processes or between computers.  
 
 How do we communicate with different processes? 
 * Will go over later  

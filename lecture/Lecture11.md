@@ -94,7 +94,7 @@ Making each of the reqs. for deadlock false:
   * Done using time time quantum method
   * Time Quantum Method: Allocate time to each process. When time is over, resources must be released  
 * Circular wait:
-  * Number all resources  
+  * Number all resources and request resources in ascending / descending order
 
 E.g: 
 1. CPU
@@ -127,6 +127,8 @@ Deadlock is only a subset of unsafe states. There could possibly be no deadlock 
 
 ![Alt text](img/Lecture11/image-19.png)  
 
+ONLY in the case of single instance resources does a cycle indicate a deadlock  
+
 ![Alt text](img/Lecture11/image-20.png)  
 
 ![Alt text](img/Lecture11/image-21.png)  
@@ -135,7 +137,7 @@ Deadlock is only a subset of unsafe states. There could possibly be no deadlock 
 
 ![Alt text](img/Lecture11/image-23.png)  
 
-So, cycle != Guaranteed deadlock. HOWEVER, it is still possible for a deadlock to happen, and even more pertinent to this context, a cycle in the graph would mean that we are in an unsafe state *???*. Therefore, we want to avoid cycles at all costs  
+So, cycle != Guaranteed deadlock. HOWEVER, it is still possible for a deadlock to happen, and even more pertinent to this context, a cycle in the graph would mean that we are in an unsafe state. Therefore, we want to avoid cycles at all costs  
 
 ![Alt text](img/Lecture11/image-24.png)  
 
