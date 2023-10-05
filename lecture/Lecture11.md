@@ -194,4 +194,3 @@ The main difference between Bankers and Detection is that in Banker's, we know b
 ![Alt text](img/Lecture11/image-41.png)  
 
 ![Alt text](img/Lecture11/image-42.png)  
-
