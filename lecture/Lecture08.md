@@ -5,7 +5,7 @@
 
 *No slides?*  
 
-SYstem consists of object sAND activities
+System consists of objects AND activities
 
 Act>: Executional programs
 
