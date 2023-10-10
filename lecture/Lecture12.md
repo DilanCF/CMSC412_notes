@@ -41,7 +41,7 @@ Typically, a process is gonig trhough this V loop
 
 ![Alt text](img/Lecture12/image-2.png)  
 
-We throuhg this &#8593 loop of 
+We throuhg this &uarr loop of 
 
 ![Alt text](img/Lecture12/image-3.png)  
 
