@@ -7,7 +7,41 @@
 
 ![Alt text](img/Lecture12/image-1.png)  
 
+Managing states and budgeting processes  
+
+Before: Threads. Now, we assume that we are managing processes  
+
+Any process in ifs lifetime goes through certain states  
+* Ready
+  * A Process has recieved all recsources except for CPU 
+  * In ready queue   
+* Running 
+  * In the running queue
+  * No process in running state ever?
+    * Yes, interrupt, deciding which process to give control
+    * Apart from that, there is only one process per CPU
+    * Kernel is not considered a process, and does not need to be scheduled
+  * What can happen?
+    * Complete process and go to terminated
+    * Interrupt comes in and cpntrol is taken away
+      * From here, go to ready state until control is given back OR, if IO needed, go to waiting ASOASF
+* Terminated
+  * Restore state of process
+
+Scheduling means 
+* Selecting a procss in a ready queue
+  * This is a policy question
+  * Do many tjhings (May be done atomically)
+* Decide on a time quantum (if applicable)
+* Restore the ame state of the process
+  * When in reayd, this states remains in GPR (General purpose registers)  
+* Change IC 
+
+Typically, a process is gonig trhough this V loop  
+
 ![Alt text](img/Lecture12/image-2.png)  
+
+We throuhg this &#8593 loop of 
 
 ![Alt text](img/Lecture12/image-3.png)  
 
