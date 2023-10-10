@@ -1,7 +1,7 @@
 # CMSC412 Lecture 12  
 > 10-10  
 
-*Watching 2019 Panopto lecture*  
+*Watching March 12, 2019 Panopto lecture*  
 
 ## CPU Scheduling  
 
