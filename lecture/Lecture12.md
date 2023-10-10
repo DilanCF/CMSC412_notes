@@ -7,6 +7,12 @@
 
 ![Alt text](img/Lecture12/image-1.png)  
 
+Recall the difference between Policy and Mechanism  
+
+What does it mean to schedule?  
+* We have processes in the ready queue, waiting for CPU
+* Deciding which processes we take from ready to CPU
+
 Managing states and budgeting processes  
 
 Before: Threads. Now, we assume that we are managing processes  
@@ -40,6 +46,25 @@ Scheduling means
 Typically, a process is gonig trhough this V loop  
 
 ![Alt text](img/Lecture12/image-2.png)  
+
+What do we try to achieve with our scheduling policy?  
+* Busyness!  
+
+Spinning lock is a way to wait. Can we do that here?  
+* N OMEGLUL
+* Scheduler is not a process
+* If we put cheduler in the queue, what will CPU do??  
+
+5 processes waiting, and we keep our CPU fully busy with all of them. 
+* ONly time we are wasting is when we do not have anything in the ready queue  
+* Scheduler can noly allocate from ready queue
+* Must optimize time (User side)
+  * Depends on how quickly we can get the CPU
+  * We want to be responsive to all processes that are active in the computer at one time  
+
+Selecting from the processes in the ready queue
+* When scheduler gives process to CPU, how long will it take to relinquish control?  
+* Determined by CPU bursts  
 
 We throuhg this ^ loop of bursts, running and waiting constantly  
 
@@ -76,12 +101,19 @@ IRL, most processes are IO bound
 
 Burst in miliseconds is very small. Most burst lie less than 8 miliseconds  
 
+Some bursts may take a long time  
+
+Knowing this, we can take it into account when designing  
+
 ![Alt text](img/Lecture12/image-4.png)  
 
 Which one is selected depends on algo, queue order, etc.  
 
 When would the scheduler come into effect?  
 * When a process is running and goes into waiting state  
+
+Nonpremptive
+* Once you give control to process it holds it until it voluntarily gives it up
 
 Scheduler needs to come in when the process relinquishes control  
 
@@ -116,6 +148,8 @@ All these things influence how we implement things / how things are done today
 
 *He starts to draw on a board that I can't see in the video :(*  
 
+*But he does it in person!!!*  
+
 ![Alt text](img/Lecture12/image-7.png)  
 
 Observation: Every one of these has to do with TIME  
@@ -126,17 +160,23 @@ Naive approach: First come first serve
 
 Here, we are concerned with how long each process spends in the waiting queue  
 
-FCFS is the fairest since the burst times are still the same
-
 ![Alt text](img/Lecture12/image-9.png)  
 
 Now, if we order it from shortest to longest task, average waiting times decrease dramatically  
+
+Arrival as well as policy can impact the response times you can get  
 
 ![Alt text](img/Lecture12/image-10.png)  
 
 Asking the user does not work, since user either does not know length or lies to gain priority  
 
 ![Alt text](img/Lecture12/image-11.png)  
+
+How do we prove this is the smallest average wait time?  
+
+Can we change the order s/t the wait time becomes smaller?  
+
+*Check ~35 min*  
 
 ![Alt text](img/Lecture12/image-12.png)  
 
@@ -153,15 +193,18 @@ SJF, assume all jobs given, and giving control of CPU to jobs in defined order, 
 * If new job arrives:
   * Take away controol from currntly running job and give to new job  
 
-![Alt text](img/Lecture12/image-13.png)  
 
-Last bullet is why we call it exponential  
+![Alt text](img/Lecture12/image-13.png)   
 
-![Alt text](img/Lecture12/image-14.png)  
+![Alt text](img/Lecture12/image-14.png) 
+
+Last bullet is why we call it exponential 
 
 ![Alt text](img/Lecture12/image-15.png)  
 
-*Look up a video on this ^ or sumn*
+*Look up a video on this ^ or sumn*  
+
+Strvation is always possible if it is not handled explicilty  
 
 ![Alt text](img/Lecture12/image-16.png)  
 
@@ -171,7 +214,15 @@ IN the SRTF, it is a preemptive process.
 
 Priority is either preemp or non preemp 
 
-SJF cannot be preemptive ???
+SJF cannot be preemptive ???  
+
+In FCFS, priority is arrival time  
+
+SJF, priority is length  
+
+ASOASF  
+
+
 
 ![Alt text](img/Lecture12/image-17.png)  
 
@@ -183,6 +234,8 @@ Even though P4 had the lowest length, also had lowest priority, thus we do it la
 
 *Video lookup*  
 
+When CPU burst times are large, everyone has to wait. RR attempts to remedy this by setting a quantum time wherein processes must complete work within it before it gets preempted for the next process  
+
 * Bunch of processes in ready queue  
 * Take one, giv CPU for quantum time
   * Did not finish in time due to interurpt
@@ -190,25 +243,63 @@ Even though P4 had the lowest length, also had lowest priority, thus we do it la
 
 This ensures that each process gets the same amount of time  
 
+Processor shedding: ???  
+
 ![Alt text](img/Lecture12/image-19.png)  
 
 ![Alt text](img/Lecture12/image-20.png)  
 
-*Video from March 12 stops here*
+*Video from March 12 stops here*  
+
+Suppose proces time is 10, Context time = 12  
+* No context switches  
+
+See rest on slide  
 
 ![Alt text](img/Lecture12/image-21.png)  
 
+With respect to the time quantum. SOmetimes by making q smaller, sometimes get better performance  
+
 ![Alt text](img/Lecture12/image-22.png)  
+
+We have multiple queues instead of one ready queue  
+
+Foreground: user is interacting with it  
+
+Backgound: C'mon  
+
+RR is most responsive to the user  
 
 ![Alt text](img/Lecture12/image-23.png)  
 
+A process in any of the lower layers only executes when there is nothing in the higher priority queues  
+
+This yields multi level feedback  
+
 ![Alt text](img/Lecture12/image-24.png)  
+
+
 
 ![Alt text](img/Lecture12/image-25.png)  
 
 ![Alt text](img/Lecture12/image-26.png)  
 
+It is convention that each level is the double of the one above  
+
+The process in the front has been in the queue for the longest, and v.v for the last  
+
 ![Alt text](img/Lecture12/image-27.png)  
+
+We talk about a server (A) with a FCFS queue  
+
+Assume arrival is Poisson  
+* Poisson: # of arrivals have a certain density
+* There is a distriubtion between the arrivals (???)
+
+*See this part in the video*  
+
+As we try to get higher utilization, response time gets worse
+* Response time is for the user, utilizaion is for the admin  
 
 ![Alt text](img/Lecture12/image-28.png)  
 
