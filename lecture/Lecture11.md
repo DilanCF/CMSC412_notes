@@ -103,7 +103,7 @@ E.g:
 
    * Therefore, process can request resources in increasing order. If any process tries to request a #1 resource after requesting and being granted a #4 resource, it is ~~told to fuck off~~ not given the resource  
 
-![Alt text](image.png)  
+ ![Alt text](aux-image.png)
 
 Here ^ is an example of what I said. In case you can't read my god-awful no-improvement-since-2nd-grade handwriting:  
 
