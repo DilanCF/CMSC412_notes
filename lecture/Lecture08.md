@@ -213,7 +213,7 @@ No other thread may enter during CS
 
 ![Alt text](img/Lecture08/image-49.png)  
 
-If we have N processes, before entering CS, every process gets a number (akin to a bakery, ~~much like my ass~~)  
+If we have N processes, before entering CS, every process gets a number (akin to a bakery)  
 
 ![Alt text](img/Lecture08/image-50.png)  
 
