@@ -113,7 +113,8 @@ When would the scheduler come into effect?
 * When a process is running and goes into waiting state  
 
 Nonpremptive
-* Once you give control to process it holds it until it voluntarily gives it up
+* Once you give control to process it holds it until it voluntarily gives it up  
+  * May be done by going top wating or by termination 
 
 Scheduler needs to come in when the process relinquishes control  
 
@@ -121,7 +122,7 @@ Scheduler needs to come in when the process relinquishes control
 
 Preemptive  
 * WHenever, whatever you are doing, you are forced to stop  
-* Comes from outside source ???
+
 
 
 ![Alt text](img/Lecture12/image-5.png)  
