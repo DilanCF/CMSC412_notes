@@ -151,6 +151,10 @@ All these things influence how we implement things / how things are done today
 
 *But he does it in person!!!*  
 
+![Alt text](image.png) 
+
+Essentially, what is happening here is that we are trying to define response time. Thinking time here is the time to process that information, think on it, and decide what to do next.  It's not neccessary to have this time as fast as rsponse time, since we can't exactly make an approriate decision in such a short amount of time (unless you're Lewis Hamilton or sumn, but then again, why would Hamilton care about operating systems?)  
+
 ![Alt text](img/Lecture12/image-7.png)  
 
 Observation: Every one of these has to do with TIME  
@@ -177,7 +181,7 @@ How do we prove this is the smallest average wait time?
 
 Can we change the order s/t the wait time becomes smaller?  
 
-*Check ~35 min*  
+The wait time for any of he processes is the total exec time of the jobs ahead of it (the ones that worked first). Can we change the ordr so that this time becmes small? The tasks that come later have longer exec time. Switching wil only increase. Thus we can prove that this is the smallest wait time  
 
 ![Alt text](img/Lecture12/image-12.png)  
 
