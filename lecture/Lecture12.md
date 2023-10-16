@@ -185,6 +185,8 @@ The wait time for any of he processes is the total exec time of the jobs ahead o
 
 ![Alt text](img/Lecture12/image-12.png)  
 
+Based on what we have observed from the previous burst, we can determine the next burst  
+
 SJF is a nonpreemptive process  
 * Assume that, once we are given CPU, we involuntarily relinquish it ???
 
@@ -192,7 +194,9 @@ We can monitor how long the previous bursts were and predict the next one from t
 
 Predict next CPU burst on previous and an exponential averaging  
 
-if alpha is 0, tn does not make a difference, recent history does not matter ???  
+
+If alpha is 1, the next predicted value is equal to the current burst value  
+if alpha is 0, tn does not make a difference, recent history does not matter  
 
 SJF, assume all jobs given, and giving control of CPU to jobs in defined order, not taking any away.  
 * If new job arrives:
@@ -209,6 +213,11 @@ Last bullet is why we call it exponential
 
 *Look up a video on this ^ or sumn*  
 
+This is what happens when the jobs arrive at differing times, instead of at the same time  
+
+When a new process arrives, we see how long it will take and comparte it with the currently running process. If we see that the new process will take less time that the currently running one, we switch to it.  
+* We assume 0 time for context switch  
+
 Strvation is always possible if it is not handled explicilty  
 
 ![Alt text](img/Lecture12/image-16.png)  
@@ -218,6 +227,8 @@ If a new process comes in and has higher priortiy, preempt and do the new one
 IN the SRTF, it is a preemptive process.  
 
 Priority is either preemp or non preemp 
+* Non P: Once we give copntrol, it cont. to exec under whatever conditions
+* P: Anytime a newe job copmes in, check priority with ther curr priority  
 
 SJF cannot be preemptive ???  
 
@@ -248,7 +259,7 @@ When CPU burst times are large, everyone has to wait. RR attempts to remedy this
 
 This ensures that each process gets the same amount of time  
 
-Processor shedding: ???  
+Processor shedding: If the context swithc time is 0 and q is very small, thats called processor sharing  
 
 ![Alt text](img/Lecture12/image-19.png)  
 
@@ -298,102 +309,32 @@ The process in the front has been in the queue for the longest, and v.v for the 
 We talk about a server (A) with a FCFS queue  
 
 Assume arrival is Poisson  
-* Poisson: # of arrivals have a certain density
+* Poisson: # of arrivals in a certain amount of time have a certain density
 * There is a distriubtion between the arrivals (???)
 
-*See this part in the video*  
+Should be to the -mu s instead of positive  
+
+Utilization is the portion of time where the server is busy  
+
+Can lambda become larger than mu?  
+* Queue will become infinite
+* Lambda must be less than mu
 
 As we try to get higher utilization, response time gets worse
 * Response time is for the user, utilizaion is for the admin  
 
 ![Alt text](img/Lecture12/image-28.png)  
 
+2 servers of rate mu, OR 1 of 2mu  
+
+WHat do we exepct to ahppen?  
+
+Arrival rate 2x and service rate 2x  
+
+One protperty of poisson, if we randomly assign such as in the first situation, we still have poisson withh rate equal to probability of the split happening (in this case, 50%)  
+
 ![Alt text](img/Lecture12/image-29.png)  
 
 ![Alt text](img/Lecture12/image-30.png)  
 
 ![Alt text](img/Lecture12/image-31.png)  
-
-![Alt text](img/Lecture12/image-32.png)  
-
-![Alt text](img/Lecture12/image-33.png)  
-
-![Alt text](img/Lecture12/image-34.png)  
-
-![Alt text](img/Lecture12/image-35.png)  
-
-![Alt text](img/Lecture12/image-36.png)  
-
-![Alt text](img/Lecture12/image-37.png)  
-
-![Alt text](img/Lecture12/image-38.png)  
-
-![Alt text](img/Lecture12/image-39.png)  
-
-![Alt text](img/Lecture12/image-40.png)  
-
-![Alt text](img/Lecture12/image-41.png)  
-
-![Alt text](img/Lecture12/image-42.png)  
-
-![Alt text](img/Lecture12/image-43.png)  
-
-![Alt text](img/Lecture12/image-44.png)  
-
-![Alt text](img/Lecture12/image-45.png)  
-
-![Alt text](img/Lecture12/image-46.png)  
-
-![Alt text](img/Lecture12/image-47.png)  
-
-![Alt text](img/Lecture12/image-48.png)  
-
-![Alt text](img/Lecture12/image-49.png)  
-
-![Alt text](img/Lecture12/image-50.png)  
-
-![Alt text](img/Lecture12/image-51.png)  
-
-![Alt text](img/Lecture12/image-52.png)  
-
-![Alt text](img/Lecture12/image-53.png)  
-
-![Alt text](img/Lecture12/image-54.png)  
-
-![Alt text](img/Lecture12/image-55.png)  
-
-![Alt text](img/Lecture12/image-56.png)  
-
-![Alt text](img/Lecture12/image-57.png)  
-
-![Alt text](img/Lecture12/image-58.png)  
-
-![Alt text](img/Lecture12/image-59.png)  
-
-![Alt text](img/Lecture12/image-60.png)  
-
-![Alt text](img/Lecture12/image-61.png)  
-
-![Alt text](img/Lecture12/image-62.png)  
-
-![Alt text](img/Lecture12/image-63.png)  
-
-![Alt text](img/Lecture12/image-64.png)  
-
-![Alt text](img/Lecture12/image-65.png)  
-
-![Alt text](img/Lecture12/image-66.png)  
-
-![Alt text](img/Lecture12/image-67.png)  
-
-![Alt text](img/Lecture12/image-68.png)  
-
-![Alt text](img/Lecture12/image-69.png)  
-
-![Alt text](img/Lecture12/image-70.png)  
-
-![Alt text](img/Lecture12/image-71.png)  
-
-![Alt text](img/Lecture12/image-72.png)  
-
-![Alt text](img/Lecture12/image-73.png)  
