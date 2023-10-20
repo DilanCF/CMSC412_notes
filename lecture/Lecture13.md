@@ -5,7 +5,7 @@
 
 ## CPU Scheduling Pt. 2
 
-![Alt text](image-1.png)
+![Alt text](img/Lecture13/image-1.png)
 
 Scheduling fundamentals are the basis of everything that we do in this class
 
@@ -31,22 +31,22 @@ User lvl threads run Witihin the time that is allocated to this part. process
 
 All user lvl scheduler does is shuffle bewtween available ones  
 
-![Alt text](image-2.png)
+![Alt text](img/Lecture13/image-2.png)
 
 Definie the scope herea as a process scope or a system scope  
 
 If thread is using process scheduling, define scope as such ASOASF  
 * Otherwise, scope is system level  
 
-![Alt text](image-3.png)  
+![Alt text](img/Lecture13/image-3.png)  
 
 Talking about what the scope is. PThreads scope process. Different acitons taken
 
-![Alt text](image-4.png)  
+![Alt text](img/Lecture13/image-4.png)  
 
 Create theread with all parameters. May deifne wih that the socpe of the thread that we are running AS LONG ASD OP supports it  
 
-![Alt text](image-5.png)  
+![Alt text](img/Lecture13/image-5.png)  
 
 Basic Idea: What kind of API calls we use to mnake these things happen  
 
@@ -69,7 +69,7 @@ If each process is self scheduling, each has its own dispatcher, etc.
 * They base their scheduling on the overall state of the system 
 * As long as these data structs are visible, they can take their own decisions 
 
-![Alt text](image-6.png)  
+![Alt text](img/Lecture13/image-6.png)  
 
 We org. all kinds of queues, S/A the ready queue  
 
@@ -83,7 +83,7 @@ Multi-processing:
 Why we care?  
 * What is accerssible and available is a question of the memory model  
 
-![Alt text](image-7.png)  
+![Alt text](img/Lecture13/image-7.png)  
 
 Multi-ptrocessors  
 
@@ -102,7 +102,7 @@ Task migration:
 * Apart from doing management, not much that it takes  
   * Very few OS support this  
 
-![Alt text](image-8.png)  
+![Alt text](img/Lecture13/image-8.png)  
 
 We have on a same physical chip  
 
@@ -115,7 +115,7 @@ Hardware threads
 
 
 
-![Alt text](image-9.png)  
+![Alt text](img/Lecture13/image-9.png)  
 
 Recognize the memory cycle is much longer to the coimputer cycle  
 
@@ -128,10 +128,10 @@ If we have 4 cors on chip and 16 threads, eahc core has 4 sets of register
 * Difference comes in compute:stall ratio
   * Happens on instr by instr basis  
 
-![Alt text](image-10.png)  
+![Alt text](img/Lecture13/image-10.png)  
 From OS view, even though we have 4 cores and 2 threads per core, OS may view it as 8 things to schedule  
 
-![Alt text](image-11.png)  
+![Alt text](img/Lecture13/image-11.png)  
 
 Memeory at different cores
 * Local is fast, sharing is slow  
@@ -144,7 +144,7 @@ We have to take into account the memeopry placeenmt
 * If we are on same processor, using local  
 * If we move process ot other processor, may need to copy memory or suffer lowe access time  
 
-![Alt text](image-12.png)  
+![Alt text](img/Lecture13/image-12.png)  
 
 What does real time mean?  
 * Any time computer is interacting with any physical system  
@@ -182,7 +182,7 @@ Soft real time: Must finish by 10, but ok to be late
 Hard real time: If not done by 10, we are FUBAR  
 * Crash  
 
-![Alt text](image-13.png)  
+![Alt text](img/Lecture13/image-13.png)  
 
 This is the basis we use  
 
@@ -194,7 +194,7 @@ All these tasks are started by event that is causing an interrupt
 
 Most systems make real-time as a seperate category and give it Very High Priority<sup>TM</sup>  
 
-![Alt text](image-14.png)  
+![Alt text](img/Lecture13/image-14.png)  
 
 For each task, we are given a period  
 
@@ -209,11 +209,11 @@ If $t$ == $d$, any problems?
 What if $t$ == $p$?  
 * Better dedicate the processor to the particular task. If we take it away at any tiome, will not meet next deadline   
 
-![Alt text](image-15.png)  
+![Alt text](img/Lecture13/image-15.png)  
 
 When you go to VM env, real-time cannot be done  
 
-![Alt text](image-16.png)  
+![Alt text](img/Lecture13/image-16.png)  
 
 Strict preemtive priority based scheduling  
 
@@ -223,21 +223,21 @@ I can take away control from P<sub>2</sub> if P<sub>1</sub> comes in
 * How often does P<sub>1</sub> come in? 
   * See Gantt chart  
 
-![Alt text](image-17.png)  
+![Alt text](img/Lecture13/image-17.png)  
 
 Combined utilization is 94%  
 
 [Video on RMS](https://www.youtube.com/watch?v=a3XqpyEW3ns&ab_channel=EZCSE)
 
-![Alt text](image-18.png)  
+![Alt text](img/Lecture13/image-18.png)  
 
 These are the kinds of scheduling that are talked about in RTS  
 
 [Video on EDF](https://www.youtube.com/watch?v=lZdS9offd5s&ab_channel=EZCSE)
 
-![Alt text](image-19.png)  
+![Alt text](img/Lecture13/image-19.png)  
 
-![Alt text](image-20.png)  
+![Alt text](img/Lecture13/image-20.png)  
 
 Gives 2 types of scheduling threads for RT  
 
@@ -245,68 +245,68 @@ Which one to use for real time (FIFO or RR)?
 * With RR, how much CPU we get depends on ho many other jobs we get (Not optimal)
 * FIFO, we know how many jobs we have (Optimal)
 
-![Alt text](image-21.png)  
+![Alt text](img/Lecture13/image-21.png)  
 
-![Alt text](image-22.png)  
+![Alt text](img/Lecture13/image-22.png)  
 
-![Alt text](image-23.png)  
+![Alt text](img/Lecture13/image-23.png)  
 
-![Alt text](image-24.png)  
+![Alt text](img/Lecture13/image-24.png)  
 
 Real tiome hasd higher priority  
 
-q == Quantum  
+$q$ == Quantum  
 
-![Alt text](image-25.png)  
+![Alt text](img/Lecture13/image-25.png)  
 
-![Alt text](image-26.png)  
+![Alt text](img/Lecture13/image-26.png)  
 
-![Alt text](image-27.png)  
+![Alt text](img/Lecture13/image-27.png)  
 
 Priorities go from 0-99  
 
-![Alt text](image-28.png)  
+![Alt text](img/Lecture13/image-28.png)  
 
-![Alt text](image-29.png)  
+![Alt text](img/Lecture13/image-29.png)  
 
-![Alt text](image-30.png)  
+![Alt text](img/Lecture13/image-30.png)  
 
-![Alt text](image-31.png)  
+![Alt text](img/Lecture13/image-31.png)  
 
 Combinign these numbers give the priority  
 
-![Alt text](image-32.png)  
+![Alt text](img/Lecture13/image-32.png)  
 
-![Alt text](image-33.png)  
+![Alt text](img/Lecture13/image-33.png)  
 
 IN this table, 59 is the highest priority
 * If we give more time to highest priority, defeats the purpose
   * We assign priority based on how long it takes. If it doesn't take too much time, then we give it higher priority since it will be finished sooner  
 
 
-![Alt text](image-34.png)  
+![Alt text](img/Lecture13/image-34.png)  
 
-![Alt text](image-35.png)  
+![Alt text](img/Lecture13/image-35.png)  
 
-![Alt text](image-36.png)  
+![Alt text](img/Lecture13/image-36.png)  
 
 The models we have seen before are purely theortical; not good for practical applications  
 
-![Alt text](image-37.png)  
+![Alt text](img/Lecture13/image-37.png)  
 
-![Alt text](image-38.png)  
+![Alt text](img/Lecture13/image-38.png)  
 
-![Alt text](image-39.png)  
+![Alt text](img/Lecture13/image-39.png)  
 
 Applicable to braod number of situaitons  
 
 *Look up video*  
 
-![Alt text](image-40.png)  
+![Alt text](img/Lecture13/image-40.png)  
 
-![Alt text](image-41.png)  
+![Alt text](img/Lecture13/image-41.png)  
 
-![Alt text](image-42.png)  
+![Alt text](img/Lecture13/image-42.png)  
 
 ## Memory Management  
 
@@ -325,9 +325,9 @@ Kernel must therefore be in the memory also
 * Not necessary to hold the entire kernel
   * If so, should be a mechanicm by whidch the parts of the kernel needed are brought in  
 
-![Alt text](image-43.png)  
+![Alt text](img/Lecture13/image-43.png)  
 
-![Alt text](image-44.png)  
+![Alt text](img/Lecture13/image-44.png)  
 
 Cache: Fatser memory access that is used to communicate changes to the CPU  
 
