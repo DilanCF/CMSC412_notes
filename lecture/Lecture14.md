@@ -2,168 +2,265 @@
 > 10-17  
 
 *Watching March 28, 2019 Panopto lecture*  
+**NOTE**: These notes will use the 2019 slides since the 2023 slides differ quite significantly from the recording. AKA didn't record the lecture properly last week 
 
 ## Memory Management  
 
-![Alt text](img/Lecture14/image-1.png)  
+![Alt text](image-1.png)  
 
-![Alt text](img/Lecture14/image-2.png)  
+![Alt text](image-2.png)  
 
-![Alt text](img/Lecture14/image-3.png)  
+![Alt text](image-3.png)  
 
-![Alt text](img/Lecture14/image-4.png)  
+When we are trying to design memory, what are we trying to achieve?  
 
-![Alt text](img/Lecture14/image-5.png)  
+Large address sapce: We dont want to be limited by the memory as programmers  
+* For many decades, the programming and requirement doubles every year (Moores law)  
 
-![Alt text](img/Lecture14/image-6.png)  
+We can have HW that helps us reach these things  
 
-![Alt text](img/Lecture14/image-7.png)  
+Executing partially loaded programs since we don't have everything in main memory
+* Can we really do this?
+  * To exec an instruction, ho much mem do we access?
+    * Enough for the intruction possibly
+  * We dont really care where the other parts are as long as we can access them when we need them
+  * We need to do the memory mnagement so we can load and unload from the secondary torage
+  * ll the info of he memory space we have exists on the secondary storage  
+The programs that we have written and the address spaces that we're operating in, any image of tht must be loaded into secondary
 
-![Alt text](img/Lecture14/image-8.png)  
+This is realted to dynamic relocatability, where we need to be able to move stuff around when we need them.  
+* Since we are trying to manage the finite real memory, we better be flexible!  
 
-![Alt text](img/Lecture14/image-9.png)  
+If we look at typical webserver, how many concurrent requests may we handle?
+* mUst we have seperate copeis of the code for the systme to handle for each instance?  
+  * Too big!
 
-![Alt text](img/Lecture14/image-10.png)  
+Need one copy everyone shares  
 
-![Alt text](img/Lecture14/image-11.png)  
+Called per-user code  
 
-![Alt text](img/Lecture14/image-12.png)  
+New tabs == new process, esp. with Chrome  
 
-![Alt text](img/Lecture14/image-13.png)  
+How to make the common code appear in both stacks? 
+* This is the essence of sharing  
 
-![Alt text](img/Lecture14/image-14.png)  
+Protection means no ~~disintegrations~~ unauthorized actions  <sub>as you wish</sub>  
 
-![Alt text](img/Lecture14/image-15.png)  
+User's have exclusive rights over their memory, barring the OS  
 
-![Alt text](img/Lecture14/image-16.png)  
 
-![Alt text](img/Lecture14/image-17.png)  
+![Alt text](image-4.png)  
 
-![Alt text](img/Lecture14/image-18.png)  
+![Alt text](image-5.png)  
 
-![Alt text](img/Lecture14/image-19.png)  
+![Alt text](image-6.png)  
 
-![Alt text](img/Lecture14/image-20.png)  
+The CPU has access only to the main memory and its local cache and registers  
 
-![Alt text](img/Lecture14/image-21.png)  
+For now, just assume all chaches as the same, since they behave functionally the same, but with differing performances  
 
-![Alt text](img/Lecture14/image-22.png)  
+Protection must be done in HW  
+* Must procect every access  
 
-![Alt text](img/Lecture14/image-23.png)  
+![Alt text](image-7.png)  
 
-![Alt text](img/Lecture14/image-24.png)  
+We have a base and limit register. IN the memory, we can have multiple processes
+* Each process is given an address space
+* slice of ech of the proceses must be < real memory
+* Whole process must stay in the memory  
 
-![Alt text](img/Lecture14/image-25.png)  
+The address space that the program sees goes from 0 to some number  
 
-![Alt text](img/Lecture14/image-26.png)  
+Each has a base register that helps us see the space for ech process  
 
-![Alt text](img/Lecture14/image-27.png)  
+The base addresses are offset from the space of the OS, and they are stored to the CPU  
 
-![Alt text](img/Lecture14/image-28.png)  
+Size of the request is less than the limit  
 
-![Alt text](img/Lecture14/image-29.png)  
+We can have the limits specified in the VM, or in the real space  
 
-![Alt text](img/Lecture14/image-30.png)  
+LImit reg: Test in Virtual address space. Must mke sure dress that we wish to issue is less than it  
 
-![Alt text](img/Lecture14/image-31.png)  
+![Alt text](image-8.png)  
 
-![Alt text](img/Lecture14/image-32.png)  
+Steps: 
 
-![Alt text](img/Lecture14/image-33.png)  
+1. CPU issues address
+2. If addr. is greater than or equal to base, we continue
+3. if the address is less than the base and the limit combined, then we can go to memory
+4. Keep in mind the trap for addressing errors (too small, OOB, etc.)
 
-![Alt text](img/Lecture14/image-34.png)  
+![Alt text](image-9.png)  
 
-![Alt text](img/Lecture14/image-35.png)  
+This is all done in the VM for the particular process
 
-![Alt text](img/Lecture14/image-36.png)  
+Each binding maps one address space to the other  
 
-![Alt text](img/Lecture14/image-37.png)  
+A lot of this address space mapping goes on all the time  
 
-![Alt text](img/Lecture14/image-38.png)  
+![Alt text](image-10.png)  
 
-![Alt text](img/Lecture14/image-39.png)  
+Binding: Take any addrress and asign it to a particular addres space  
 
-![Alt text](img/Lecture14/image-40.png)  
+Absolute code refers strictly to the virtual address space of the process
 
-![Alt text](img/Lecture14/image-41.png)  
+![Alt text](image-11.png)  
 
-![Alt text](img/Lecture14/image-42.png)  
+![Alt text](image-12.png)  
 
-![Alt text](img/Lecture14/image-43.png)  
+LOgical memory space is boundd to seperate physical memory space
+* Key to memory mnagement  
 
-![Alt text](img/Lecture14/image-44.png)  
+![Alt text](image-13.png)  
 
-![Alt text](img/Lecture14/image-45.png)  
+*Look up video on MMU*  
 
-![Alt text](img/Lecture14/image-46.png)  
+![Alt text](image-14.png)  
 
-![Alt text](img/Lecture14/image-47.png)  
+As long you are consistent, this is good to use  
 
-![Alt text](img/Lecture14/image-48.png)  
+DLLs that we have in Windows are OS ibraries that help with this  
 
-![Alt text](img/Lecture14/image-49.png)  
+Suppose we were bringing in and dynamically linking code  
 
-![Alt text](img/Lecture14/image-50.png)  
+We locte it somewhere in the memory  
 
-![Alt text](img/Lecture14/image-51.png)  
+All we have is the relocatoin register pointing to its location to help us find it  
 
-![Alt text](img/Lecture14/image-52.png)  
+When we go to the DLL, once we have loaded it into memory, we just need the relocation register location to make it work  
 
-![Alt text](img/Lecture14/image-53.png)  
+![Alt text](image-15.png)  
 
-![Alt text](img/Lecture14/image-54.png)  
+![Alt text](image-16.png)  
 
-![Alt text](img/Lecture14/image-55.png)  
+![Alt text](image-17.png)  
 
-![Alt text](img/Lecture14/image-56.png)  
+Limited real space with large program?
+* Overlays! 
 
-![Alt text](img/Lecture14/image-57.png)  
+A user implements this overlay, no special support from HW at all  
 
-![Alt text](img/Lecture14/image-58.png)  
+![Alt text](image-18.png)  
 
-![Alt text](img/Lecture14/image-59.png)  
+Backing store: Secondary sorage (HDD, etc)  
 
-![Alt text](img/Lecture14/image-60.png)  
+Phys memory space can now surpass main memory  
 
-![Alt text](img/Lecture14/image-61.png)  
+***28:58***
 
-![Alt text](img/Lecture14/image-62.png)  
+![Alt text](image-19.png)  
 
-![Alt text](img/Lecture14/image-63.png)  
+![Alt text](image-20.png)  
 
-![Alt text](img/Lecture14/image-64.png)  
+![Alt text](image-21.png)  
 
-![Alt text](img/Lecture14/image-65.png)  
+![Alt text](image-22.png)  
 
-![Alt text](img/Lecture14/image-66.png)  
+![Alt text](image-23.png)  
 
-![Alt text](img/Lecture14/image-67.png)  
+![Alt text](image-24.png)  
 
-![Alt text](img/Lecture14/image-68.png)  
+![Alt text](image-25.png)  
 
-![Alt text](img/Lecture14/image-69.png)  
+![Alt text](image-26.png)  
 
-![Alt text](img/Lecture14/image-70.png)  
+![Alt text](image-27.png)  
 
-![Alt text](img/Lecture14/image-71.png)  
+![Alt text](image-28.png)  
 
-![Alt text](img/Lecture14/image-72.png)  
+![Alt text](image-29.png)  
 
-![Alt text](img/Lecture14/image-73.png)  
+![Alt text](image-30.png)  
 
-![Alt text](img/Lecture14/image-74.png)  
+![Alt text](image-31.png)  
 
-![Alt text](img/Lecture14/image-75.png)  
+![Alt text](image-32.png)  
 
-![Alt text](img/Lecture14/image-76.png)  
+![Alt text](image-33.png)  
 
-![Alt text](img/Lecture14/image-77.png)  
+![Alt text](image-34.png)  
 
-![Alt text](img/Lecture14/image-78.png)  
+![Alt text](image-35.png)  
 
-![Alt text](img/Lecture14/image-79.png)  
+![Alt text](image-36.png)  
 
-![Alt text](img/Lecture14/image-80.png)  
+![Alt text](image-37.png)  
 
-![Alt text](img/Lecture14/image-81.png)  
+![Alt text](image-38.png)  
+
+![Alt text](image-39.png)  
+
+![Alt text](image-40.png)  
+
+![Alt text](image-41.png)  
+
+![Alt text](image-42.png)  
+
+![Alt text](image-43.png)  
+
+![Alt text](image-44.png)  
+
+![Alt text](image-45.png)  
+
+![Alt text](image-46.png)  
+
+![Alt text](image-47.png)  
+
+![Alt text](image-48.png)  
+
+![Alt text](image-49.png)  
+
+![Alt text](image-50.png)  
+
+![Alt text](image-51.png)  
+
+![Alt text](image-52.png)  
+
+![Alt text](image-53.png)  
+
+![Alt text](image-54.png)  
+
+![Alt text](image-55.png)  
+
+![Alt text](image-56.png)  
+
+![Alt text](image-57.png)  
+
+![Alt text](image-58.png)  
+
+![Alt text](image-59.png)  
+
+![Alt text](image-60.png)  
+
+![Alt text](image-61.png)  
+
+![Alt text](image-62.png)  
+
+![Alt text](image-63.png)  
+
+![Alt text](image-64.png)  
+
+![Alt text](image-65.png)  
+
+![Alt text](image-66.png)  
+
+![Alt text](image-67.png)  
+
+![Alt text](image-68.png)  
+
+![Alt text](image-69.png)  
+
+![Alt text](image-70.png)  
+
+![Alt text](image-71.png)  
+
+![Alt text](image-72.png)  
+
+![Alt text](image-73.png)  
+
+![Alt text](image-74.png)  
+
+![Alt text](image-75.png)  
+
+![Alt text](image-76.png)  
 
