@@ -8,37 +8,37 @@
 
 Basic concept: We manipulate address spaces all the time!  
 
-Mapping of addr space fomr one to other happens as we go along at many differen tplaces
+Mapping of addr space from one to other happens as we go along at many different places
 
-translating one addr to another
+Translating one addr to another
 * As long as we get a new unique addr for th one we are trying to convert, thats all that matters
 
 Carry on till exec time  
 
-Adress translatoin important!  
+Address translation important!  
 
 Need the mechanism  
 
-Program preperation: Mapping done in sftware  
+Program preparation: Mapping done in software  
 
-Runtime: Teansaltion done using HW  
+Runtime: Translation done using HW  
 
 addr trans: Address treated as individual binary number and contents are the word of the info coming throuhg  
 
 Translation table: We are seeing one base and one limit register
 * May have more  
-* Ppoint a pointer to it
+* Point a pointer to it
 
 ![Alt text](img/Lecture15/image-33.png)  
 
-We have a bunch of modules and the lanbuage prep parts are treatong each module independently
+We have a bunch of modules and the language prep parts are treating each module independently
 
-If there are refecences outside of the modules, they are left as symbolic addresses (module, name, etc.)
+If there are references outside of the modules, they are left as symbolic addresses (module, name, etc.)
 
-runtime: everythingm must be resolved  
+Runtime: everything must be resolved  
 * All addresses must be resolved to some memory location
 
-Can we retain this sructure througught?  
+Can we retain this structure throughout?  
 
 ![Alt text](img/Lecture15/image-34.png)  
 
@@ -77,7 +77,7 @@ Key limiting factor is the ability to translate them
 
 Logical -> physical  
 
-Each seg. contigous  
+Each seg. contiguous  
 
 ![Alt text](img/Lecture15/image-38.png)  
 
@@ -89,7 +89,7 @@ Can we carry out address translation now?
 * NO
 * Need the mechanism that finds the segment table and check s < STLR, then add the offset  
 
-Code-sahring: Segment level 
+Code-sharing: Segment level 
 * If provisions done  
 
 Fit the whole segment space of different processes
@@ -99,25 +99,25 @@ Fit the whole segment space of different processes
 
 ![Alt text](img/Lecture15/image-41.png)  
 
-For a processes logcial address space, thet are mapped to phys address space at different locaiton and kept teack of in a segment table  
+For a processes logical address space, they are mapped to phys address space at different location and kept track of in a segment table  
 
 ![Alt text](img/Lecture15/image-42.png)
 
-one way: common editor, want to make sure no process has acces to any other process
+One way: common editor, want to make sure no process has access to any other process
 * Specifically, all data kept in different segment  
-* Reentrant code: No self modifying instrucitnos, DNH temporary data
+* Reentrant code: No self modifying instructions, DNH temporary data
 
-If we have a single copy of editor, will the address trnas go properly?  
-* must have seperate address table  
+If we have a single copy of editor, will the address trans go properly?  
+* Must have separate address table  
 
 Depending on which of the two processes is in control, relevant segment table will be used  
 
-Addr. for modufyable portion is in the data portion  
+Addr. for modifiable portion is in the data portion  
 
 Must every segment of my process be resident @ exec time?  
 * No
 
-If we are executing in seg.1 and using memory in seg. 2 at one time, we dont care about the rest of the segments 
+If we are executing in seg.1 and using memory in seg. 2 at one time, we don't care about the rest of the segments 
 
 ![Alt text](img/Lecture15/image-43.png)  
 
