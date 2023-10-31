@@ -1,20 +1,20 @@
 # CMSC412 Lecture 18  
 > 10-31  
 
-##   
+## Virtual Memory
 
-Fundamental notion:  Being able to map an addres space to any othr
+Fundamental notion:  Being able to map an address space to any other
 * Given N address and an address space, must be able to map to another one
-* If not available, must have mechanism to get it from a different place (Secdonary sorage)
-  * May also store in main memmory?
+* If not available, must have mechanism to get it from a different place (Secondary storage)
+  * May also store in main memory?
   * Commercial operating systems: more complexity  
   * Why is RL messier than examples in textbook?
     * Environment that our system will be in is unknown 
       * User, programs to be run, etc.
     * Must have a General Purpose solution
 
-For a commercail system, a virtual memory system, must decide:
-* Segmentaiton? Paging? Both?
+For a commercial system, a virtual memory system, must decide:
+* Segmentation? Paging? Both?
 * Page size?
 * Page fault policy?
 * ASOASF
@@ -22,11 +22,11 @@ For a commercail system, a virtual memory system, must decide:
 Also need to consider HW support  
 
 Windows page size: 12b or 32b  
-* Wantd to see that the intel HW supports this jind of nvironmetn  
+* Wanted to see that the intel HW supports this kind of environment  
 
-Say we decide paging, segmentaiton or no?  
+Say we decide paging, segmentation or no?  
 
-* Segmntation comes doen to HW support and ???  
+* Segmentation comes down to HW support and ???  
 
 ![Alt text](image-59.png)
 
@@ -38,7 +38,7 @@ Swapping: Take out all pages alloc to a process and put it in storage to free sp
 
 ![Alt text](image-60.png)
 
-Pagepout deamon and works like clock algo
+Pageout daemon and works like clock algo
 * For each page, we support one extra bit  
 
 When paging out, just put it on a free page list
@@ -60,7 +60,7 @@ Say the machine has 32MB of memory
 Overloaded: Too many page faults  
 * Swapping avoid us entering thrashing condition!  
 
-So much paginf done that ??? becomes low  
+So much paging done that ??? becomes low  
 
 ![Alt text](image-2.png)  
 
@@ -81,25 +81,26 @@ HW did not provide modified bit. Why?
 
 ![Alt text](image-6.png)  
 
-Insted of just getting page that the default is on, we get some more along with it ???
+Instead of just getting page that the default is on, we get some more along with it ???
 
 ![Alt text](image-7.png)  
 
 ![Alt text](image-8.png)  
 
-END VIRTUAL MEMORY
+
+## Mass Storage
 
 ![Alt text](image-9.png)  
 
-SO fa, we have talked about CPU and memory, etc.  
+So far, we have talked about CPU and memory, etc.  
 
-The complete addr. sapce has to be somewhere
+The complete addr. space has to be somewhere
 
 Since we cant have large main memory, we must have secondary storage  
 
 Having offline ones
 
-*watch from 30min to hear him waffle on about old storage things :))*  
+*watch from 30 min to hear him waffle on about old storage things :))*  
 
 Magnetic disks remain "dominant" for the past few decades
 * Secondary because hey are not connected to the CPU ???  
@@ -118,7 +119,7 @@ How long does it tak to go over the track?
 * Seek time
 
 ???
-* rotattion delay
+* Rotation delay
   * Max can be the time it takes to rotate once, min once
 
 ![Alt text](image-14.png)  
@@ -137,12 +138,12 @@ How long does it tak to go over the track?
 
 ![Alt text](image-21.png)  
 Can we do better than just estimating averages?
-* Only if we know where everyhting is beforehand  
+* Only if we know where everything is beforehand  
 
-Transfer time depends on whwrre we are making transer from  
+Transfer time depends on where we are making transfer from  
 
 These days, most disk drives have their own cache
-* WHenever you request sector, whole track copy is stored in the cache  
+* Whenever you request sector, whole track copy is stored in the cache  
 
 ![Alt text](image-22.png)  
 
