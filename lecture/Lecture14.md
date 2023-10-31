@@ -148,17 +148,33 @@ Phys memory space can now surpass main memory
 
 ***28:58***
 
+we have to be able tyo take the image that is stored in memory, roll it out, and put a new one in  
+
 ![Alt text](img/Lecture14/image-19.png)  
+
+Does the swapped...?
+* If it was done at load time, will come back to physical addresses  
 
 ![Alt text](img/Lecture14/image-20.png)  
 
+Swapping *can* be a time consuming process  
+
 ![Alt text](img/Lecture14/image-21.png)  
 
+Context switch time can include the swapping time  
+
+
 ![Alt text](img/Lecture14/image-22.png)  
+
+[Short video on 2x buffering](https://www.youtube.com/watch?v=qdeBmEnv_bI&ab_channel=CS186Berkeley)  
+
+mem to mem copy, must have the space, and since we are copying to the kernel, the kernel will require the same amount of space as well  
 
 ![Alt text](img/Lecture14/image-23.png)  
 
 ![Alt text](img/Lecture14/image-24.png)  
+
+If we have multiple processes, processor knows the start addresses and assigns spaces accordingly and contiguously  
 
 ![Alt text](img/Lecture14/image-25.png)  
 
@@ -166,7 +182,37 @@ Phys memory space can now surpass main memory
 
 ![Alt text](img/Lecture14/image-27.png)  
 
+Hole continues to change  
+
+Say at the end of this chart, process 9 ends. We now have 2 spaces free, but not contiguous. In order to remedy this, we'd need to do a memory to memory move  
+
+We want to make sure the holes we have are as large as possible ;)  
+
+For allocated spaces we need to keep track of
+* Process it belongs to
+* Beginning address
+* Limit (?)  
+
+For holes we need to keep track of
+* Beginning
+* Size  
+
+With 10 holes, how do we choose where to allocate?
+* First hole that is more than the size, then allocate  
+* Keep the holes ordered by size and find best fit
+* " and find worst fit  
+
+What are we trying to do?
+* Avoid mem->mem move
+* Biggest holes  
+
+Therefore worst fit is best (acc. to Prof, but video below doesn't line up with that, so who tf knows)   
+
+[Video on First vs Best vs Worst Fit](https://www.youtube.com/watch?v=HBQZ5rlaN-s&ab_channel=ShrutiP)
+
 ![Alt text](img/Lecture14/image-28.png)  
+
+***46:42***
 
 ![Alt text](img/Lecture14/image-29.png)  
 
