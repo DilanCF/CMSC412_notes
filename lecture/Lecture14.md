@@ -14,25 +14,25 @@
 
 When we are trying to design memory, what are we trying to achieve?  
 
-Large address sapce: We dont want to be limited by the memory as programmers  
+Large address space: We don't want to be limited by the memory as programmers  
 * For many decades, the programming and requirement doubles every year (Moores law)  
 
 We can have HW that helps us reach these things  
 
 Executing partially loaded programs since we don't have everything in main memory
 * Can we really do this?
-  * To exec an instruction, ho much mem do we access?
-    * Enough for the intruction possibly
-  * We dont really care where the other parts are as long as we can access them when we need them
-  * We need to do the memory mnagement so we can load and unload from the secondary torage
+  * To exec an instruction, how much mem do we access?
+    * Enough for the instruction possibly
+  * We don't really care where the other parts are as long as we can access them when we need them
+  * We need to do the memory management so we can load and unload from the secondary storage
   * ll the info of he memory space we have exists on the secondary storage  
 The programs that we have written and the address spaces that we're operating in, any image of tht must be loaded into secondary
 
-This is realted to dynamic relocatability, where we need to be able to move stuff around when we need them.  
+This is related to dynamic relocatability, where we need to be able to move stuff around when we need them.  
 * Since we are trying to manage the finite real memory, we better be flexible!  
 
-If we look at typical webserver, how many concurrent requests may we handle?
-* mUst we have seperate copeis of the code for the systme to handle for each instance?  
+If we look at typical web server, how many concurrent requests may we handle?
+* mUst we have separate copies of the code for the system to handle for each instance?  
   * Too big!
 
 Need one copy everyone shares  
@@ -48,25 +48,24 @@ Protection means no ~~disintegrations~~ unauthorized actions  <sub>as you wish</
 
 User's have exclusive rights over their memory, barring the OS  
 
-
 ![Alt text](img/Lecture14/image-4.png)  
 
-![Alt text](img/Lecture14/-5.png)  
+![Alt text](img/Lecture14/image-5.png)  
 
 ![Alt text](img/Lecture14/image-6.png)  
 
 The CPU has access only to the main memory and its local cache and registers  
 
-For now, just assume all chaches as the same, since they behave functionally the same, but with differing performances  
+For now, just assume all caches as the same, since they behave functionally the same, but with differing performances  
 
 Protection must be done in HW  
-* Must procect every access  
+* Must protect every access  
 
 ![Alt text](img/Lecture14/image-7.png)  
 
 We have a base and limit register. IN the memory, we can have multiple processes
 * Each process is given an address space
-* slice of ech of the proceses must be < real memory
+* slice of ech of the processes must be < real memory
 * Whole process must stay in the memory  
 
 The address space that the program sees goes from 0 to some number  
@@ -100,7 +99,7 @@ A lot of this address space mapping goes on all the time
 
 ![Alt text](img/Lecture14/image-10.png)  
 
-Binding: Take any addrress and asign it to a particular addres space  
+Binding: Take any address and assign it to a particular address space  
 
 Absolute code refers strictly to the virtual address space of the process
 
@@ -108,8 +107,8 @@ Absolute code refers strictly to the virtual address space of the process
 
 ![Alt text](img/Lecture14/image-12.png)  
 
-LOgical memory space is boundd to seperate physical memory space
-* Key to memory mnagement  
+LOgical memory space is bound to separate physical memory space
+* Key to memory management  
 
 ![Alt text](img/Lecture14/image-13.png)  
 
@@ -119,13 +118,13 @@ LOgical memory space is boundd to seperate physical memory space
 
 As long you are consistent, this is good to use  
 
-DLLs that we have in Windows are OS ibraries that help with this  
+DLLs that we have in Windows are OS libraries that help with this  
 
 Suppose we were bringing in and dynamically linking code  
 
-We locte it somewhere in the memory  
+We locate it somewhere in the memory  
 
-All we have is the relocatoin register pointing to its location to help us find it  
+All we have is the relocation register pointing to its location to help us find it  
 
 When we go to the DLL, once we have loaded it into memory, we just need the relocation register location to make it work  
 
@@ -142,13 +141,11 @@ A user implements this overlay, no special support from HW at all
 
 ![Alt text](img/Lecture14/image-18.png)  
 
-Backing store: Secondary sorage (HDD, etc)  
+Backing store: Secondary storage (HDD, etc)  
 
 Phys memory space can now surpass main memory  
 
-***28:58***
-
-we have to be able tyo take the image that is stored in memory, roll it out, and put a new one in  
+We have to be able tyo take the image that is stored in memory, roll it out, and put a new one in  
 
 ![Alt text](img/Lecture14/image-19.png)  
 
@@ -212,79 +209,77 @@ Therefore worst fit is best (acc. to Prof, but video below doesn't line up with 
 
 ![Alt text](img/Lecture14/image-28.png)  
 
-***46:42***
-
 ![Alt text](img/Lecture14/image-29.png)  
 
-Why would thee be internal fragmenation?  
+Why would there be internal fragmentation?  
 * Managing memory, we need to see the granularity we want to use  
   * byte by byte?
 
 Larger the chunk we manage, the less details we keep track of  
 
-We can easlity split the address to describe the chunk number  
+We can easily split the address to describe the chunk number  
 
-If we are going to orgainize a memory with 4k chunks, and we are given 4097 bytes, we will need 2 chunks  
+If we are going to organize a memory with 4k chunks, and we are given 4097 bytes, we will need 2 chunks  
 
 The 4095 bytes contribute to the fragmentation  
 
-Srct limit on internal frag if we are doing the aloc and mm management and can locate any availabel chunk with an adress space  
+Strict limit on internal frag if we are doing the alloc and mem management and can locate any available chunk with an address space  
 * May be done with paging  
 
-Limiting the maximum size of fagmentaiton to size of chunk  
+Limiting the maximum size of fragmentation to size of chunk  
 
 ![Alt text](img/Lecture14/image-30.png)  
 
-We create pre-defined partioins at setup time. THis is how we do it if not dnoe dynamically  
+We create pre-defined partitions at setup time. THis is how we do it if not done dynamically  
 
-All swapping tht is done must be done with respect to the partioin  
+All swapping tht is done must be done with respect to the partition  
 
 DMA: Direct Memory Access  
 
 MOs of the devices have a device driver and controller  
 
-TYpically, all IO controlled by OS in eesponse to system calls made by processes  
+TYpically, all IO controlled by OS in response to system calls made by processes  
 
-Swapping generated by kernel istelf  
+Swapping generated by kernel itself  
 
-Typically, 2 odminant types of IO we can do  
+Typically, 2 dominant types of IO we can do  
 
 1. Programmed IO
    1. Only way we want to operate is to handle it through interrupts  
-   2. Esential unit of transfer is byte or word  
+   2. Essential unit of transfer is byte or word  
    3. CPU supplies the address on the disk, and reding is done at a set amount of time 
-   4. Request goes to dev controler, and if head is not at that ylinder, we move it
-   5. wait for secto to take it, read sector into buffer in the device control 
-   6. transfer informiton one word at a time
+   4. Request goes to dev controller, and if head is not at that cylinder, we move it
+   5. Wait for sector to take it, read sector into buffer in the device control 
+   6. Transfer information one word at a time
 2. DMA
-   1. Device onrolll sits on the samebus as the memory
-   2. device controller can write directly to the mmeory
-   3. Instead of asking for a signle ector, can ask for bigger seciotn f file
+   1. Device onrolll sits on the same bus as the memory
+   2. device controller can write directly to the memory
+   3. Instead of asking for a single sector, can ask for bigger section of file
    4. can specify where in the memory this should be put
    5. Still need to specify location
    6. Device controller will read sector by sector, bring to buffer
-   7. Since we have acces to memory, we don't interrupt and write directly
+   7. Since we have access to memory, we don't interrupt and write directly
    8. whn done, then we interrupt CPU  
 
-When the deivde controller goes thorugh memory, who is making the request?  
+When the device controller goes through memory, who is making the request?  
 * Typically the CPU  
 
 Stealing memory cycles from CPU  
 
-In our case, when we say we need to lach it to the memory, we specify where this IO whould bring things in  
+In our case, when we say we need to latch it to the memory, we specify where this IO would bring things in  
 
 ![Alt text](img/Lecture14/image-31.png)  
 
 Programs have ben bound to address space  
-* Thought of as a continous segment of space
+* Thought of as a continuous segment of space
 
 Creating an executable image, we combine all them and fitting to address space at run time
 
-Can trat each as a segment  
+Can treat each as a segment  
 
-Treating the logical address space as a colleciton of segments  
+Treating the logical address space as a collection of segments  
 
-Each has continos space, but each is different form the other  
+Each has continuos space, but each is different form the other  
 
 ![Alt text](img/Lecture14/image-32.png)  
 
@@ -294,7 +289,7 @@ All of these are now much closer to ach other
 
 ![Alt text](img/Lecture14/image-34.png)  
 
-Changing logical vew of addres space  
+Changing logical vew of address space  
 
 ![Alt text](img/Lecture14/image-35.png)  
 
@@ -308,7 +303,7 @@ My segment abel has an entry for that segment, etc.
 
 ![Alt text](img/Lecture14/image-38.png)  
 
-Sementatoin supports sharing  
+Segmentation supports sharing  
 
 ![Alt text](img/Lecture14/image-39.png)  
 
