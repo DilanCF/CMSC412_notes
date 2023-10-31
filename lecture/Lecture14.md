@@ -6,11 +6,11 @@
 
 ## Memory Management  
 
-![Alt text](image-1.png)  
+![Alt text](img/Lecture14/image-1.png)  
 
-![Alt text](image-2.png)  
+![Alt text](img/Lecture14/image-2.png)  
 
-![Alt text](image-3.png)  
+![Alt text](img/Lecture14/image-3.png)  
 
 When we are trying to design memory, what are we trying to achieve?  
 
@@ -49,11 +49,11 @@ Protection means no ~~disintegrations~~ unauthorized actions  <sub>as you wish</
 User's have exclusive rights over their memory, barring the OS  
 
 
-![Alt text](image-4.png)  
+![Alt text](img/Lecture14/image-4.png)  
 
-![Alt text](image-5.png)  
+![Alt text](img/Lecture14/-5.png)  
 
-![Alt text](image-6.png)  
+![Alt text](img/Lecture14/image-6.png)  
 
 The CPU has access only to the main memory and its local cache and registers  
 
@@ -62,7 +62,7 @@ For now, just assume all chaches as the same, since they behave functionally the
 Protection must be done in HW  
 * Must procect every access  
 
-![Alt text](image-7.png)  
+![Alt text](img/Lecture14/image-7.png)  
 
 We have a base and limit register. IN the memory, we can have multiple processes
 * Each process is given an address space
@@ -81,7 +81,7 @@ We can have the limits specified in the VM, or in the real space
 
 LImit reg: Test in Virtual address space. Must mke sure dress that we wish to issue is less than it  
 
-![Alt text](image-8.png)  
+![Alt text](img/Lecture14/image-8.png)  
 
 Steps: 
 
@@ -90,7 +90,7 @@ Steps:
 3. if the address is less than the base and the limit combined, then we can go to memory
 4. Keep in mind the trap for addressing errors (too small, OOB, etc.)
 
-![Alt text](image-9.png)  
+![Alt text](img/Lecture14/image-9.png)  
 
 This is all done in the VM for the particular process
 
@@ -98,24 +98,24 @@ Each binding maps one address space to the other
 
 A lot of this address space mapping goes on all the time  
 
-![Alt text](image-10.png)  
+![Alt text](img/Lecture14/image-10.png)  
 
 Binding: Take any addrress and asign it to a particular addres space  
 
 Absolute code refers strictly to the virtual address space of the process
 
-![Alt text](image-11.png)  
+![Alt text](img/Lecture14/image-11.png)  
 
-![Alt text](image-12.png)  
+![Alt text](img/Lecture14/image-12.png)  
 
 LOgical memory space is boundd to seperate physical memory space
 * Key to memory mnagement  
 
-![Alt text](image-13.png)  
+![Alt text](img/Lecture14/image-13.png)  
 
 *Look up video on MMU*  
 
-![Alt text](image-14.png)  
+![Alt text](img/Lecture14/image-14.png)  
 
 As long you are consistent, this is good to use  
 
@@ -129,18 +129,18 @@ All we have is the relocatoin register pointing to its location to help us find 
 
 When we go to the DLL, once we have loaded it into memory, we just need the relocation register location to make it work  
 
-![Alt text](image-15.png)  
+![Alt text](img/Lecture14/image-15.png)  
 
-![Alt text](image-16.png)  
+![Alt text](img/Lecture14/image-16.png)  
 
-![Alt text](image-17.png)  
+![Alt text](img/Lecture14/image-17.png)  
 
 Limited real space with large program?
 * Overlays! 
 
 A user implements this overlay, no special support from HW at all  
 
-![Alt text](image-18.png)  
+![Alt text](img/Lecture14/image-18.png)  
 
 Backing store: Secondary sorage (HDD, etc)  
 
@@ -148,119 +148,195 @@ Phys memory space can now surpass main memory
 
 ***28:58***
 
-![Alt text](image-19.png)  
+![Alt text](img/Lecture14/image-19.png)  
 
-![Alt text](image-20.png)  
+![Alt text](img/Lecture14/image-20.png)  
 
-![Alt text](image-21.png)  
+![Alt text](img/Lecture14/image-21.png)  
 
-![Alt text](image-22.png)  
+![Alt text](img/Lecture14/image-22.png)  
 
-![Alt text](image-23.png)  
+![Alt text](img/Lecture14/image-23.png)  
 
-![Alt text](image-24.png)  
+![Alt text](img/Lecture14/image-24.png)  
 
-![Alt text](image-25.png)  
+![Alt text](img/Lecture14/image-25.png)  
 
-![Alt text](image-26.png)  
+![Alt text](img/Lecture14/image-26.png)  
 
-![Alt text](image-27.png)  
+![Alt text](img/Lecture14/image-27.png)  
 
-![Alt text](image-28.png)  
+![Alt text](img/Lecture14/image-28.png)  
 
-![Alt text](image-29.png)  
+![Alt text](img/Lecture14/image-29.png)  
 
-![Alt text](image-30.png)  
+Why would thee be internal fragmenation?  
+* Managing memory, we need to see the granularity we want to use  
+  * byte by byte?
 
-![Alt text](image-31.png)  
+Larger the chunk we manage, the less details we keep track of  
 
-![Alt text](image-32.png)  
+We can easlity split the address to describe the chunk number  
 
-![Alt text](image-33.png)  
+If we are going to orgainize a memory with 4k chunks, and we are given 4097 bytes, we will need 2 chunks  
 
-![Alt text](image-34.png)  
+The 4095 bytes contribute to the fragmentation  
 
-![Alt text](image-35.png)  
+Srct limit on internal frag if we are doing the aloc and mm management and can locate any availabel chunk with an adress space  
+* May be done with paging  
 
-![Alt text](image-36.png)  
+Limiting the maximum size of fagmentaiton to size of chunk  
 
-![Alt text](image-37.png)  
+![Alt text](img/Lecture14/image-30.png)  
 
-![Alt text](image-38.png)  
+We create pre-defined partioins at setup time. THis is how we do it if not dnoe dynamically  
 
-![Alt text](image-39.png)  
+All swapping tht is done must be done with respect to the partioin  
 
-![Alt text](image-40.png)  
+DMA: Direct Memory Access  
 
-![Alt text](image-41.png)  
+MOs of the devices have a device driver and controller  
 
-![Alt text](image-42.png)  
+TYpically, all IO controlled by OS in eesponse to system calls made by processes  
 
-![Alt text](image-43.png)  
+Swapping generated by kernel istelf  
 
-![Alt text](image-44.png)  
+Typically, 2 odminant types of IO we can do  
 
-![Alt text](image-45.png)  
+1. Programmed IO
+   1. Only way we want to operate is to handle it through interrupts  
+   2. Esential unit of transfer is byte or word  
+   3. CPU supplies the address on the disk, and reding is done at a set amount of time 
+   4. Request goes to dev controler, and if head is not at that ylinder, we move it
+   5. wait for secto to take it, read sector into buffer in the device control 
+   6. transfer informiton one word at a time
+2. DMA
+   1. Device onrolll sits on the samebus as the memory
+   2. device controller can write directly to the mmeory
+   3. Instead of asking for a signle ector, can ask for bigger seciotn f file
+   4. can specify where in the memory this should be put
+   5. Still need to specify location
+   6. Device controller will read sector by sector, bring to buffer
+   7. Since we have acces to memory, we don't interrupt and write directly
+   8. whn done, then we interrupt CPU  
 
-![Alt text](image-46.png)  
+When the deivde controller goes thorugh memory, who is making the request?  
+* Typically the CPU  
 
-![Alt text](image-47.png)  
+Stealing memory cycles from CPU  
 
-![Alt text](image-48.png)  
+In our case, when we say we need to lach it to the memory, we specify where this IO whould bring things in  
 
-![Alt text](image-49.png)  
+![Alt text](img/Lecture14/image-31.png)  
 
-![Alt text](image-50.png)  
+Programs have ben bound to address space  
+* Thought of as a continous segment of space
 
-![Alt text](image-51.png)  
+Creating an executable image, we combine all them and fitting to address space at run time
 
-![Alt text](image-52.png)  
+Can trat each as a segment  
 
-![Alt text](image-53.png)  
+Treating the logical address space as a colleciton of segments  
 
-![Alt text](image-54.png)  
+Each has continos space, but each is different form the other  
 
-![Alt text](image-55.png)  
+![Alt text](img/Lecture14/image-32.png)  
 
-![Alt text](image-56.png)  
+All of these are now much closer to ach other  
 
-![Alt text](image-57.png)  
+![Alt text](img/Lecture14/image-33.png)  
 
-![Alt text](image-58.png)  
+![Alt text](img/Lecture14/image-34.png)  
 
-![Alt text](image-59.png)  
+Changing logical vew of addres space  
 
-![Alt text](image-60.png)  
+![Alt text](img/Lecture14/image-35.png)  
 
-![Alt text](image-61.png)  
+In the previous archs, for large programs, large chunks  
 
-![Alt text](image-62.png)  
+My segment abel has an entry for that segment, etc.  
 
-![Alt text](image-63.png)  
+![Alt text](img/Lecture14/image-36.png)  
 
-![Alt text](image-64.png)  
+![Alt text](img/Lecture14/image-37.png)  
 
-![Alt text](image-65.png)  
+![Alt text](img/Lecture14/image-38.png)  
 
-![Alt text](image-66.png)  
+Sementatoin supports sharing  
 
-![Alt text](image-67.png)  
+![Alt text](img/Lecture14/image-39.png)  
 
-![Alt text](image-68.png)  
+![Alt text](img/Lecture14/image-40.png)  
 
-![Alt text](image-69.png)  
+![Alt text](img/Lecture14/image-41.png)  
 
-![Alt text](image-70.png)  
+![Alt text](img/Lecture14/image-42.png)  
 
-![Alt text](image-71.png)  
+![Alt text](img/Lecture14/image-43.png)  
 
-![Alt text](image-72.png)  
+![Alt text](img/Lecture14/image-44.png)  
 
-![Alt text](image-73.png)  
+![Alt text](img/Lecture14/image-45.png)  
 
-![Alt text](image-74.png)  
+![Alt text](img/Lecture14/image-46.png)  
 
-![Alt text](image-75.png)  
+![Alt text](img/Lecture14/image-47.png)  
 
-![Alt text](image-76.png)  
+![Alt text](img/Lecture14/image-48.png)  
+
+![Alt text](img/Lecture14/image-49.png)  
+
+![Alt text](img/Lecture14/image-50.png)  
+
+![Alt text](img/Lecture14/image-51.png)  
+
+![Alt text](img/Lecture14/image-52.png)  
+
+![Alt text](img/Lecture14/image-53.png)  
+
+![Alt text](img/Lecture14/image-54.png)  
+
+![Alt text](img/Lecture14/image-55.png)  
+
+![Alt text](img/Lecture14/image-56.png)  
+
+![Alt text](img/Lecture14/image-57.png)  
+
+![Alt text](img/Lecture14/image-58.png)  
+
+![Alt text](img/Lecture14/image-59.png)  
+
+![Alt text](img/Lecture14/image-60.png)  
+
+![Alt text](img/Lecture14/image-61.png)  
+
+![Alt text](img/Lecture14/image-62.png)  
+
+![Alt text](img/Lecture14/image-63.png)  
+
+![Alt text](img/Lecture14/image-64.png)  
+
+![Alt text](img/Lecture14/image-65.png)  
+
+![Alt text](img/Lecture14/image-66.png)  
+
+![Alt text](img/Lecture14/image-67.png)  
+
+![Alt text](img/Lecture14/image-68.png)  
+
+![Alt text](img/Lecture14/image-69.png)  
+
+![Alt text](img/Lecture14/image-70.png)  
+
+![Alt text](img/Lecture14/image-71.png)  
+
+![Alt text](img/Lecture14/image-72.png)  
+
+![Alt text](img/Lecture14/image-73.png)  
+
+![Alt text](img/Lecture14/image-74.png)  
+
+![Alt text](img/Lecture14/image-75.png)  
+
+![Alt text](img/Lecture14/image-76.png)  
 
