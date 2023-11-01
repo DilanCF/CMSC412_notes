@@ -1,4 +1,4 @@
-# CMSC412 Lecture 13  
+# CMSC412 Lecture 14  
 > 10-17  
 
 *Watching March 28, 2019 Panopto lecture*  
