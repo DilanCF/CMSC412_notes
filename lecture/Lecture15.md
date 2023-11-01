@@ -116,10 +116,41 @@ Addr. for modifiable portion is in the data portion
 
 Must every segment of my process be resident @ exec time?  
 * No
+* If we are executing in seg.1 and using memory in seg. 2 at one time, we don't care about the rest of the segments  
+  * ONly if we make refs. t th nuusd segments do we need them to be available  
 
-If we are executing in seg.1 and using memory in seg. 2 at one time, we don't care about the rest of the segments 
+Our logical address space can become exceedongly large due to this  
+
+LImitations of segmentaiton: Segments are variable length
+* must know it length  
+
+Need to worry about mem management  
+* Loading problem (1st fit, worst fit, etc.)  
+
+How to avoid external fragmentation?
+* Unsuded space that is not contiguos 
+* com up with structur that all borken spaces could be filled, then we could do so. 
+
+internal frag
+* Unused pace within allocated block  
+
+1. split phys memory into segments
+2. Make sure every segment is of same size 
+3. Each segment will occupy all the holes  
+
+THis is good, but will result in internal fragmentation  
+
+How to avoid this?  
+
+Decrease size of each blobk, more pages needed  
+* This results in les internal frag  
+
 
 ![Alt text](img/Lecture15/image-43.png)  
+
+View the linear address space as a sequence of blocks of equal size  
+
+~32:00 He starts writing on the board about Logical address space and how to index through them  
 
 ![Alt text](img/Lecture15/image-44.png)  
 
@@ -129,23 +160,67 @@ If we are executing in seg.1 and using memory in seg. 2 at one time, we don't ca
 
 ![Alt text](img/Lecture15/image-47.png)  
 
+All we do is that the COU issues an address which we will break up at runtime
+* Programmer DN need to know about paging in that system  
+
+Knowing that we hve paging *can* be beneficial, but is mostly fine to not know  
+
 ![Alt text](img/Lecture15/image-48.png)  
 
 ![Alt text](img/Lecture15/image-49.png)  
 
 ![Alt text](img/Lecture15/image-50.png)  
 
+Need to keep trck of free frames in memory management  
+
+If thee are not enough free frames, we simply dont load or create space
+* Get rid of some of the allocated spaces
+
 ![Alt text](img/Lecture15/image-51.png)  
 
+For each memory reference, we may neeed to go into he memory twice    
+
+Whn we execute programs, we normally do them sequentilly  
+* must we go to the page table for every one of the instrutions?
+  * Instead, save our spot in the translation and go from there  
+
 ![Alt text](img/Lecture15/image-52.png)  
+
+These are usually not very large  
+
+Seperate one for every process?  
+* Page number will keep procesID for where its from  
+
+TLB is implemented as part of the CPU  
+
+How o we find if there is a page number in there or not  
+
+Need to do it fst enouugh to justify its existence
+
+Anytime we go to main memory, we keep a copy of the page that was just fetched with page and page frame number  
 
 ![Alt text](img/Lecture15/image-53.png)  
 
 ![Alt text](img/Lecture15/image-54.png)  
 
+HWW implementation that looks up based on content, NOT address  
+
+Simultneously checks all page numbers in assoc. mmeory 
+* If there is amatch, supplies page number  
+
+Since HW, very expensive  
+
 ![Alt text](img/Lecture15/image-55.png)  
 
+*Look up video*  
+
+Issued ot go to min meomory  
+
 ![Alt text](img/Lecture15/image-56.png)  
+
+*Look up video*
+
+***~55:00***
 
 ![Alt text](img/Lecture15/image-57.png)  
 
