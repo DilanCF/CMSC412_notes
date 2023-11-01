@@ -214,39 +214,94 @@ Since HW, very expensive
 
 *Look up video*  
 
-Issued ot go to min meomory  
+Issued to go to min meomory  
 
 ![Alt text](img/Lecture15/image-56.png)  
 
 *Look up video*
 
+The reason why we do double the time for a miss is because we need to check for a hit through the entire memory. If it's not there, we need to update the entire memory, yielding another run through the memory  
+
+By having the TLB, we can decrease th penalty  
+
 ***~55:00***
 
 ![Alt text](img/Lecture15/image-57.png)  
+
+Done on Page-byPage basis  
+
+Need to worry if the page is there or not  
+
+If not in logical address space, called page fault  
 
 ![Alt text](img/Lecture15/image-58.png)  
 
 ![Alt text](img/Lecture15/image-59.png)  
 
+For paging, we can support very large address space  
+
 ![Alt text](img/Lecture15/image-60.png)  
 
 ![Alt text](img/Lecture15/image-61.png)  
 
+We have an edior that is 2k bytes long  
+
+when process rqs. editor, it is making a ref within the process to 1100  
+
+This is hardcoded  
+
+The addresses when this si compliled, it is bound as address number xyz  
+
 ![Alt text](img/Lecture15/image-62.png)  
+
+In the address space of each process, any shared code must be in the same location  
+
+IN the page table, the first three entries are common  
+
+If here are any mem refs within proess, will be done correctly  
+
+How to ensure this?  
+* Resevre the upper half of addres space as common  
+
+All shared code could now share the relevant code  
 
 ![Alt text](img/Lecture15/image-63.png)  
 
-![Alt text](img/Lecture15/image-64.png)  
+Probrlem: If we have 2^32 address space and 4K pages, page soace can be up to 4 million!!  
+
+4 mil * 4bytes = 16million per process  
+
+![Alt text](img/Lecture15/image-64.png) 
+
+Page the page table  
 
 ![Alt text](img/Lecture15/image-65.png)  
 
 ![Alt text](img/Lecture15/image-66.png)  
 
+How many page tables do we require? 
+* 12 
+
 ![Alt text](img/Lecture15/image-67.png)  
+
+Taje higher order and index the outer page table  
+
+entry in outer page table down p1 gices the beginning for p2 which in turn gives us the physical address  
+* Getting the addresses depends on the offsets given  
+
+How many times will we need to go to memory?
+* 3 times  
+
+EAT depends on hit ratio
+* HR for outer
+* HE for inner
+
+If hit on outer and inner, EAT is 1
 
 ![Alt text](img/Lecture15/image-68.png)  
 
 ![Alt text](img/Lecture15/image-69.png)  
+We may have to go into memory up to 4 times  
 
 ![Alt text](img/Lecture15/image-70.png)  
 
@@ -254,11 +309,22 @@ Issued ot go to min meomory
 
 ![Alt text](img/Lecture15/image-72.png)  
 
+*Look up*  
+
+What we start with is the page frame number and ID
+
+For every page frame in the inverted page table, need to search and find if this entry appears anywehrre  
+
+Has not been implemented according to prof
+
 ![Alt text](img/Lecture15/image-73.png)  
 
 ![Alt text](img/Lecture15/image-74.png)  
 
 ![Alt text](img/Lecture15/image-75.png)  
+
+Segmentation with paging:  
+* Segment table, then look up page  
 
 ![Alt text](img/Lecture15/image-76.png)  
 
