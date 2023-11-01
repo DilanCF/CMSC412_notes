@@ -23,7 +23,7 @@ Program preparation: Mapping done in software
 
 Runtime: Translation done using HW  
 
-addr trans: Address treated as individual binary number and contents are the word of the info coming throuhg  
+addr trans: Address treated as individual binary number and contents are the word of the info coming through  
 
 Translation table: We are seeing one base and one limit register
 * May have more  
@@ -117,19 +117,19 @@ Addr. for modifiable portion is in the data portion
 Must every segment of my process be resident @ exec time?  
 * No
 * If we are executing in seg.1 and using memory in seg. 2 at one time, we don't care about the rest of the segments  
-  * ONly if we make refs. t th nuusd segments do we need them to be available  
+  * ONly if we make refs. to those new segments do we need them to be available  
 
-Our logical address space can become exceedongly large due to this  
+Our logical address space can become exceedingly large due to this  
 
-LImitations of segmentaiton: Segments are variable length
+LImitations of segmentation: Segments are variable length
 * must know it length  
 
 Need to worry about mem management  
 * Loading problem (1st fit, worst fit, etc.)  
 
 How to avoid external fragmentation?
-* Unsuded space that is not contiguos 
-* com up with structur that all borken spaces could be filled, then we could do so. 
+* Unused space that is not contiguous 
+* Come up with structure that all broken spaces could be filled, then we could do so. 
 
 internal frag
 * Unused pace within allocated block  
@@ -142,7 +142,7 @@ THis is good, but will result in internal fragmentation
 
 How to avoid this?  
 
-Decrease size of each blobk, more pages needed  
+Decrease size of each block, more pages needed  
 * This results in les internal frag  
 
 
@@ -171,31 +171,31 @@ Knowing that we hve paging *can* be beneficial, but is mostly fine to not know
 
 ![Alt text](img/Lecture15/image-50.png)  
 
-Need to keep trck of free frames in memory management  
+Need to keep track of free frames in memory management  
 
-If thee are not enough free frames, we simply dont load or create space
+If thee are not enough free frames, we simply don't load or create space
 * Get rid of some of the allocated spaces
 
 ![Alt text](img/Lecture15/image-51.png)  
 
-For each memory reference, we may neeed to go into he memory twice    
+For each memory reference, we may need to go into he memory twice    
 
-Whn we execute programs, we normally do them sequentilly  
-* must we go to the page table for every one of the instrutions?
+When we execute programs, we normally do them sequentially  
+* must we go to the page table for every one of the instructions?
   * Instead, save our spot in the translation and go from there  
 
 ![Alt text](img/Lecture15/image-52.png)  
 
 These are usually not very large  
 
-Seperate one for every process?  
-* Page number will keep procesID for where its from  
+Separate one for every process?  
+* Page number will keep process ID for where its from  
 
 TLB is implemented as part of the CPU  
 
 How o we find if there is a page number in there or not  
 
-Need to do it fst enouugh to justify its existence
+Need to do it fast enough to justify its existence
 
 Anytime we go to main memory, we keep a copy of the page that was just fetched with page and page frame number  
 
@@ -205,8 +205,8 @@ Anytime we go to main memory, we keep a copy of the page that was just fetched w
 
 HWW implementation that looks up based on content, NOT address  
 
-Simultneously checks all page numbers in assoc. mmeory 
-* If there is amatch, supplies page number  
+Simultaneously checks all page numbers in assoc. memory 
+* If there is a match, supplies page number  
 
 Since HW, very expensive  
 
@@ -214,7 +214,7 @@ Since HW, very expensive
 
 *Look up video*  
 
-Issued to go to min meomory  
+Issued to go to min memory  
 
 ![Alt text](img/Lecture15/image-56.png)  
 
@@ -244,13 +244,13 @@ For paging, we can support very large address space
 
 ![Alt text](img/Lecture15/image-61.png)  
 
-We have an edior that is 2k bytes long  
+We have an editor that is 2k bytes long  
 
 when process rqs. editor, it is making a ref within the process to 1100  
 
 This is hardcoded  
 
-The addresses when this si compliled, it is bound as address number xyz  
+The addresses when this is compiled, it is bound as address number xyz  
 
 ![Alt text](img/Lecture15/image-62.png)  
 
@@ -258,16 +258,16 @@ In the address space of each process, any shared code must be in the same locati
 
 IN the page table, the first three entries are common  
 
-If here are any mem refs within proess, will be done correctly  
+If here are any mem refs within process, will be done correctly  
 
 How to ensure this?  
-* Resevre the upper half of addres space as common  
+* Reserve the upper half of address space as common  
 
 All shared code could now share the relevant code  
 
 ![Alt text](img/Lecture15/image-63.png)  
 
-Probrlem: If we have 2^32 address space and 4K pages, page soace can be up to 4 million!!  
+Problem: If we have 2^32 address space and 4K pages, page space can be up to 4 million!!  
 
 4 mil * 4bytes = 16million per process  
 
@@ -284,9 +284,9 @@ How many page tables do we require?
 
 ![Alt text](img/Lecture15/image-67.png)  
 
-Taje higher order and index the outer page table  
+Take higher order and index the outer page table  
 
-entry in outer page table down p1 gices the beginning for p2 which in turn gives us the physical address  
+Entry in outer page table down p1 gives the beginning for p2 which in turn gives us the physical address  
 * Getting the addresses depends on the offsets given  
 
 How many times will we need to go to memory?
@@ -313,7 +313,7 @@ We may have to go into memory up to 4 times
 
 What we start with is the page frame number and ID
 
-For every page frame in the inverted page table, need to search and find if this entry appears anywehrre  
+For every page frame in the inverted page table, need to search and find if this entry appears anywhere  
 
 Has not been implemented according to prof
 
