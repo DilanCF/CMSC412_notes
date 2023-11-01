@@ -2,6 +2,7 @@
 > 10-19  
 
 *Watching October 19, 2023 Panopto lecture*  
+
 **NOTE**: This lecture more or less picks up at the tail of the 2019 lecture, there may be some slides that are not covered here since they were already covered last time
 
 ## Memory Management 2 <sub>electric boogaloo</sub>  
