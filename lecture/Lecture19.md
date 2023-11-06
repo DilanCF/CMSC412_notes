@@ -26,7 +26,7 @@ We talked about the kind of structures thats disks have
 
 Number all the sectors as large, 1D arrays  
 
-Say there is this view that is maintined  
+Say there is this view that is maintained  
 
 First sector: Last sector  
 
@@ -36,22 +36,22 @@ Floppy disks had a hole that aligned with a cover that also had a hole
 In the same way, our disks have a "reference" for when memory starts
 * Arbitrary  
 
-Goal: Arrnag e thigs s/t contigous things are reached quickly  
+Goal: Arrange things s/t contiguous things are reached quickly  
 
-Most of the drivrs we have will have bad sectors  
+Most of the drivers we have will have bad sectors  
 * Yield head crashes
-  * When the head of the reader scrtahes the disk itself  
+  * When the head of the reader scratches the disk itself  
 * Surface is not as smooth  
 
-Thee has to be a lwoer levl formatting s/t the tracks are identified  
+Three has to be a lower level formatting s/t the tracks are identified  
 
-At the manufacturer, they have to dcide how big the secotrs are  
+At the manufacturer, they have to decide how big the sectors are  
 
-Header of each secotr idefnited by the secotr number  
+Header of each sector identified by the sector number  
 
-Bad secotrs have replacement secotrs  
+Bad sectors have replacement sectors  
 
-Not necearraily contigous on the disk  
+Not necessarily contiguous on the disk  
 
 ![Alt text](img/Lecture18/image-34.png)
 
@@ -66,10 +66,10 @@ Everything is implemented in HW
 
 ![Alt text](img/Lecture18/image-37.png)  
 
-SAN typically failry local
+SAN typically fairly local
 * Specialized for movement of information between servers  
 
-Diffferent commincicaions for different purposes
+Different communications for different purposes
 
 ![Alt text](img/Lecture18/image-38.png)  
 
@@ -79,34 +79,34 @@ Controller that has these protocols, we can make requests from anywhere
 
 ![Alt text](img/Lecture18/image-39.png)  
 
-How is scheduling the disk different fomr the pther scheduling we have done? 
+How is scheduling the disk different from the other scheduling we have done? 
 * CPU scheduler, mem. scheduler, etc.  
 
-Three components in any tansfer
+Three components in any transfer
 
 Goal: Make operations as fast as possible  
 
 Rotational delay: how fast the disk is rotating  
 * Scheduler cannot really impact this  
 
-Accessing secoter in sequence, ???  
+Accessing sector in sequence, ???  
 
-Who controlls whether we reas sequentially or not?
+Who controls whether we read sequentially or not?
 * Program itself
 
-We can controll the seek time  
+We can control the seek time  
 
 ![Alt text](img/Lecture18/image-40.png)  
 
-ANy kind on optimization only makes sense with many requests  
+Any kind on optimization only makes sense with many requests  
 
-ONly time we can optimize nything is by reordering things around
+Only time we can optimize anything is by reordering things around
 
 ![Alt text](img/Lecture18/image-41.png)  
 
 Where does thi happen?  
 
-Softwae based device driver  
+Software based device driver  
 
 ^ Sequence of tracks we will access  
 
@@ -119,7 +119,7 @@ In what order should we process them?
 Min maxxing forsenInsanse
 
 Minimize seek time  
-* Unsucessful here  
+* Unsuccessful here  
 
 ![Alt text](img/Lecture18/image-43.png)  
 
@@ -144,7 +144,7 @@ Built in bias to addresses that are closer to the middle
 ![Alt text](img/Lecture18/image-50.png)  
 
 What can we do about the rotational delay?  
-* Very difficult since we dont have the right infomation  
+* Very difficult since we don't have the right information  
 
 how much does the disk queueing impact OS performance?
 * Higher level question  
@@ -168,10 +168,10 @@ IO commands, instead of gong through file system, goes to controller
 
 MBR: **M**aster **B**lock **R**ecord
 
-WHo does the dirve numbering?
+Who does the drive numbering?
 *BIOS  
 
-BIOS keeps trck of configuraiton and to where to go to get the boot partion in order to start the computer  
+BIOS keeps track of configuration and to where to go to get the boot partition in order to start the computer  
 
 ![Alt text](img/Lecture18/image-54.png)  
 
@@ -207,4 +207,4 @@ Automatic replication of data is common nowadays
 
 ![Alt text](image-7.png)  
 
-Make the update of his disk an atomic action  
+Make the update of this disk an atomic action  
