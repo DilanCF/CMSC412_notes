@@ -79,7 +79,7 @@ When we do this kind of swapping, due to the address space needint to be contigu
 
 Even though total amoun of free space is larger, since it is not contiguous, we cannot make use of it  
 
-![Alt text](image-8.png)  
+![Alt text](img/Lecture16/image-8.png)  
 
 We load a page only when a reference to the page is made  
 
@@ -101,155 +101,242 @@ Interrupt detected in HW
 
 ***21:40***
 
-![Alt text](image-9.png)  
+![Alt text](img/Lecture16/image-9.png)  
 
-![Alt text](image-10.png)  
+We assume in our programming that any programs can be soppedat anytime for anyamount of time w/o consequence  
 
-![Alt text](image-11.png)  
+![Alt text](img/Lecture16/image-10.png)  
 
-![Alt text](image-12.png)  
+Each page table entry has vlid-invalid but and the frame number  
 
-![Alt text](image-13.png)  
+page table has an enry for every page in virtual address space  
 
-![Alt text](image-14.png)  
+If page from virtual emmory spac is not in memory, must keep track in page table  
 
-![Alt text](image-15.png)  
+![Alt text](img/Lecture16/image-11.png)  
 
-![Alt text](image-16.png)  
+![Alt text](img/Lecture16/image-12.png)  
 
-![Alt text](image-17.png)  
+First reference?  
+* When you reference firsts time and its not there, page comes in.
+  * Causes page fault
 
-![Alt text](image-18.png)  
+A page for every emroy space, but just because we can address many places, our programs rarely are  
 
-![Alt text](image-19.png)  
+Free page frammes
+* Page frame that does not belong to any procss
+* trakced by mmu  
 
-![Alt text](image-20.png)  
+STate of machine that has to be saved is as if it was at the beginning of execution of the instruction  
+* what has changed?
+  * Program counter has been incremented, so must restore  
 
-![Alt text](image-21.png)  
+If any registers have been modified, must bring them back  
+* Done by HW when page fault occurs  
 
-![Alt text](image-22.png)  
+State of process saved at any interrupt  
 
-![Alt text](image-23.png)  
+![Alt text](img/Lecture16/image-13.png)  
 
-![Alt text](image-24.png)  
+1. Start with instruction load m
+2. Go to page with invalid bit
+   1. Causes trap
+3. Goes to OS, OS decides whether its a valid ref
+4. Page not in memory, find in secondary storage 
+How can it find it?  
+* Keep track of this
+  * Various techniques  
 
-![Alt text](image-25.png)  
+5. Issues read request  
+6. page frame modified  
 
-![Alt text](image-26.png)  
 
-![Alt text](image-27.png)  
+![Alt text](img/Lecture16/image-14.png)  
 
-![Alt text](image-28.png)  
+How do we strt the process?  
 
-![Alt text](image-29.png)  
+pointer is on first instruction to execute, not in memory  
 
-![Alt text](image-30.png)  
+For every other process page on firt access, have a page fault  
 
-![Alt text](image-31.png)  
+Pure demand paging  
+* Look up  
 
-![Alt text](image-32.png)  
+Instrution can execute multiple pages
+* What happens here?
 
-![Alt text](image-33.png)  
+the 2 numbers could be in 2 different pages  
+* Storing back somewhr another reference  
 
-![Alt text](image-34.png)  
+Executing an instructoin
+* where instruciton ws on a page in memory  
 
-![Alt text](image-35.png)  
+Fecth and decode, issue reference to first opertor  
 
-![Alt text](image-36.png)  
+Page fault means we go back to beginning  
 
-![Alt text](image-37.png)  
+ONce we have done this enought to bring the arguments in, we can continue  
 
-![Alt text](image-38.png)  
+One instruction can lead to multiple page faults!  
 
-![Alt text](image-39.png)  
+Page faults: Very expensive
+* However, most programs we write only execute small portion of code at a time sequentially  
+* first instrucion on page, has 512 byte, 1024, etc. 
+* next instruction then pages there
+* Locality of reference (look up)
+* 
+![Alt text](img/Lecture16/image-15.png)  
 
-![Alt text](image-40.png)  
+If we do a block move, and go to a location not on a page that is in mmory
+* Restart?  
+* or save state of insatruciton in the middle?
 
-![Alt text](image-41.png)  
+Depends on machine supporting partially executed programming  
 
-![Alt text](image-42.png)  
+![Alt text](img/Lecture16/image-16.png) 
 
-![Alt text](image-43.png)  
+Getting rid of disk IO would greatly enhance performance  
 
-![Alt text](image-44.png)  
+![Alt text](img/Lecture16/image-17.png)  
 
-![Alt text](image-45.png)  
+![Alt text](img/Lecture16/image-18.png)  
 
-![Alt text](image-46.png)  
+Page fault rate depends on smaller memory, smaller amount of pages, and locality  
+* Amount of physical memory given to process
+* Depending on how effective replacement poilcy  
+***51:00***
 
-![Alt text](image-47.png)  
+![Alt text](img/Lecture16/image-19.png)  
 
-![Alt text](image-48.png)  
 
-![Alt text](image-49.png)  
 
-![Alt text](image-50.png)  
+![Alt text](img/Lecture16/image-20.png)  
 
-![Alt text](image-51.png)  
+![Alt text](img/Lecture16/image-21.png)  
 
-![Alt text](image-52.png)  
+![Alt text](img/Lecture16/image-22.png)  
 
-![Alt text](image-53.png)  
+![Alt text](img/Lecture16/image-23.png)  
 
-![Alt text](image-54.png)  
+![Alt text](img/Lecture16/image-24.png)  
 
-![Alt text](image-55.png)  
+![Alt text](img/Lecture16/image-25.png)  
 
-![Alt text](image-56.png)  
+![Alt text](img/Lecture16/image-26.png)  
 
-![Alt text](image-57.png)  
+![Alt text](img/Lecture16/image-27.png)  
 
-![Alt text](image-58.png)  
+![Alt text](img/Lecture16/image-28.png)  
 
-![Alt text](image-59.png)  
+![Alt text](img/Lecture16/image-29.png)  
 
-![Alt text](image-60.png)  
+![Alt text](img/Lecture16/image-30.png)  
 
-![Alt text](image-61.png)  
+![Alt text](img/Lecture16/image-31.png)  
 
-![Alt text](image-62.png)  
+![Alt text](img/Lecture16/image-32.png)  
 
-![Alt text](image-63.png)  
+![Alt text](img/Lecture16/image-33.png)  
 
-![Alt text](image-64.png)  
+![Alt text](img/Lecture16/image-34.png)  
 
-![Alt text](image-65.png)  
+![Alt text](img/Lecture16/image-35.png)  
 
-![Alt text](image-66.png)  
+![Alt text](img/Lecture16/image-36.png)  
 
-![Alt text](image-67.png)  
+![Alt text](img/Lecture16/image-37.png)  
 
-![Alt text](image-68.png)  
+![Alt text](img/Lecture16/image-38.png)  
 
-![Alt text](image-69.png)  
+![Alt text](img/Lecture16/image-39.png)  
 
-![Alt text](image-70.png)  
+![Alt text](img/Lecture16/image-40.png)  
 
-![Alt text](image-71.png)  
+![Alt text](img/Lecture16/image-41.png)  
 
-![Alt text](image-72.png)  
+![Alt text](img/Lecture16/image-42.png)  
 
-![Alt text](image-73.png)  
+![Alt text](img/Lecture16/image-43.png)  
 
-![Alt text](image-74.png)  
+![Alt text](img/Lecture16/image-44.png)  
 
-![Alt text](image-75.png)  
+![Alt text](img/Lecture16/image-45.png)  
 
-![Alt text](image-76.png)  
+![Alt text](img/Lecture16/image-46.png)  
 
-![Alt text](image-77.png)  
+![Alt text](img/Lecture16/image-47.png)  
 
-![Alt text](image-78.png)  
+![Alt text](img/Lecture16/image-48.png)  
 
-![Alt text](image-79.png)  
+![Alt text](img/Lecture16/image-49.png)  
 
-![Alt text](image-80.png)  
+![Alt text](img/Lecture16/image-50.png)  
 
-![Alt text](image-81.png)  
+![Alt text](img/Lecture16/image-51.png)  
 
-![Alt text](image-82.png)  
+![Alt text](img/Lecture16/image-52.png)  
 
-![Alt text](image-83.png)  
+![Alt text](img/Lecture16/image-53.png)  
 
-![Alt text](image-84.png)  
+![Alt text](img/Lecture16/image-54.png)  
+
+![Alt text](img/Lecture16/image-55.png)  
+
+![Alt text](img/Lecture16/image-56.png)  
+
+![Alt text](img/Lecture16/image-57.png)  
+
+![Alt text](img/Lecture16/image-58.png)  
+
+![Alt text](img/Lecture16/image-59.png)  
+
+![Alt text](img/Lecture16/image-60.png)  
+
+![Alt text](img/Lecture16/image-61.png)  
+
+![Alt text](img/Lecture16/image-62.png)  
+
+![Alt text](img/Lecture16/image-63.png)  
+
+![Alt text](img/Lecture16/image-64.png)  
+
+![Alt text](img/Lecture16/image-65.png)  
+
+![Alt text](img/Lecture16/image-66.png)  
+
+![Alt text](img/Lecture16/image-67.png)  
+
+![Alt text](img/Lecture16/image-68.png)  
+
+![Alt text](img/Lecture16/image-69.png)  
+
+![Alt text](img/Lecture16/image-70.png)  
+
+![Alt text](img/Lecture16/image-71.png)  
+
+![Alt text](img/Lecture16/image-72.png)  
+
+![Alt text](img/Lecture16/image-73.png)  
+
+![Alt text](img/Lecture16/image-74.png)  
+
+![Alt text](img/Lecture16/image-75.png)  
+
+![Alt text](img/Lecture16/image-76.png)  
+
+![Alt text](img/Lecture16/image-77.png)  
+
+![Alt text](img/Lecture16/image-78.png)  
+
+![Alt text](img/Lecture16/image-79.png)  
+
+![Alt text](img/Lecture16/image-80.png)  
+
+![Alt text](img/Lecture16/image-81.png)  
+
+![Alt text](img/Lecture16/image-82.png)  
+
+![Alt text](img/Lecture16/image-83.png)  
+
+![Alt text](img/Lecture16/image-84.png)  
 
