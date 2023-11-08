@@ -7,13 +7,13 @@
 
 So far, talked about CPU complex and devices  
 
-Devices that we havent talked about are the sensors  
+Devices that we haven't talked about are the sensors  
 
 Difference between the devices we've discussed vs the ones we have not  
 
 IO device: need to access that are not on the PCU or the motherboard  
 
-In general, MOBO devices are much faster/ cna tlak to them quicker  
+In general, MOBO devices are much faster/ can talk to them quicker  
 
 Main ones:
 * CPU 
@@ -21,18 +21,18 @@ Main ones:
 * Display handlers
   * Still an IO device even if it is not on the MOBO  
 
-If you take a lookat differn IO deivcec
-1. info stored or retrueved by use for the compuer itself (mass storage)  
-2. Can be the type wherre user interacts with them (mice, keyboard)
+If you take a look at different IO devices
+1. Info stored or retrieved by use for the computer itself (mass storage)  
+2. Can be the type where user interacts with them (mice, keyboard)
 
 Distances may be larger  
 
 high speed I/O, signal integrity matters  
 
-We communicte using electrical connections  
+We communicate using electrical connections  
 
-If distances are larger and not on MOBO, cnnot do this
-* Comms done with cable  
+If distances are larger and not on MOBO, cannot do this
+* Communications done with cable  
 
 1 or more copper ires are placed on it  
 
@@ -40,9 +40,9 @@ As distance ^, communication delay increases
 
 Cable cannot be protected as well as on MOBO  
 
-MOst of the IO ddevices we talk bout are semi-indeopendent units  
+MOst of the IO devices we talk bout are semi-independent units  
 
-2 differen entities trying to communicate, and comms done by electricl channels, communicating using this connection  
+2 different entities trying to communicate, and communications done by electrical channels, communicating using this connection  
 
 Distances that are extremely small
 * BUs comes in  
@@ -51,43 +51,43 @@ We want to transfer the info ASAP
 
 Want to keep them for short times, therefore we send pulses  
 
-Pulse times depend on how long it takes to get recieved  
+Pulse times depend on how long it takes to get received  
 
-How does the reciever smaple the pulse at the right time?  
+How does the receiver sample the pulse at the right time?  
 
-If not exminig, pulse comes and is not seen  
+If not examining, pulse comes and is not seen  
 
-IN any communcation, both parties must agree for any communcation to take place  
+IN any communication, both parties must agree for any communication to take place  
 
-When you are talking aobut comms on a bus, have multiple wires and signals available and build HW capabilites to be able to send signals and he like  
+When you are talking about communications on a bus, have multiple wires and signals available and build HW capabilities to be able to send signals and he like  
 
 Receiver is always watching the line  
 
-caled a handshake!  
+Called a handshake!  
 
-Handshake goes on at Low lwvwl  
+Handshake goes on at low level  
 
-Better ww know what goes on at loweer level better we can understand highr level stuff  
+Better we know what goes on at lower level better we can understand higher level stuff  
 
 What should we send? 1b at a time?  
 * Nearly all internet connections are serial  
 
-Multiple bits: Bus better have multiple parallel partss  
+Multiple bits: Bus better have multiple parallel parts  
 
-Mupltiple parts, what should we send?  
-* Something consistent of the sender and reciever  
+Multiple parts, what should we send?  
+* Something consistent of the sender and receiver  
 
 Want to comm. info or data  
 
 Data may be in b, B, etc.  
 
-Make bus where staa is sent as bytes  
+Make bus where data is sent as bytes  
 
-Sender may want to say what the reciever hould do  
+Sender may want to say what the receiver should do  
 
-hich of the deviec on the bus should the data be written on  
+Which of the devices on the bus should the data be written on  
 
-Only one deivce at a time?  
+Only one device at a time?  
 
 Multiple devices: No need for multiple busses
 * Must identify devices by way of more lines  
@@ -95,7 +95,7 @@ Multiple devices: No need for multiple busses
 ***Watch video from here, went to bathroom, bit before he rambled on about AT&T***  
 
 On a bus we have many lines  
-* Not all chacateristics will be the same  
+* Not all characteristics will be the same  
 
 Electrical signal delay will be different  
 
@@ -103,23 +103,23 @@ Electrical signal delay will be different
 
 ![Alt text](image-3.png)  
 
-Devices vary eveyrwhere  
+Devices vary everywhere  
 
-Every deivce makes their own things?  
+Every device makes their own things?  
 
 Each device has a device controller supplied by the manufacturer  
 
-Connected to bus and muct conform to bus protocol  
+Connected to bus and must conform to bus protocol  
 
 BUs protocol: Set of rules that 2 parties agree on with any communication  
 
-Device scontorllers that speak this  
+Device controllers that speak this  
 
-New deives always coming it  
+New devices always coming it  
 
 Coming from CPU side  
 
-HW implementing device controller, how atonomous is it?  
+HW implementing device controller, how autonomous is it?  
 
 ![Alt text](image-4.png)  
 
@@ -132,33 +132,33 @@ Mus tbe able o use bus, must have bus interface connected to motherboard
 
 ![Alt text](image-5.png)  
 
-Nything directly onnected to bus must conform to protocol  
+Nothing directly connected to bus must conform to protocol  
 
 Since multiple units, must worry about who uses it and when, for how long , etc  
 
-May be n amount of busses  
+May be `n` amount of busses  
 
-Main thing processr is doing is executing instrucitons  
+Main thing processor is doing is executing instructions  
 
 Has interface to PCI bus  
 
 What must the interface on the CPU side have?  
 * BUffers, etc.  
 
-Different types o=f controllers tht have different capabilites  
+Different types of controllers tht have different capabilities  
 
-microcode: instrucions that can be execed at low level  
+microcode: instructions that can be execed at low level  
 
 Microprogramming has very limited instructions due to its size and height  
 
 ![Alt text](image-6.png)  
 
-Move some info from CPU complex into some registers in microcontroller that is connnected to bus  
+Move some info from CPU complex into some registers in micro controller that is connected to bus  
 
-All these devics were made long time ago <sup>TM</sup>  
+All these device were made long time ago <sup>TM</sup>  
 
 Executing machine instruction from CPU
-* Machien instructions that can midify registers  
+* Machine instructions that can modify registers  
 
 Memory-mapped IO  
 
@@ -169,7 +169,7 @@ How mush do we read from deice at a time?
 
 Buffers in device controllers tend to be small  
 
-Need to cause in to CPU to transfer data from bufer in device contorller to CPU complex  
+Need to cause in to CPU to transfer data from buffer in device controller to CPU complex  
 
 Make the controller smarter and tell it we want the info to be written in ram from loc A to loc B  
 
@@ -181,15 +181,15 @@ How does a CPU carry out any of the IOs?
 
 ![Alt text](image-10.png)  
 
-Using 3 cysles can be wasteful  
+Using 3 cycles can be wasteful  
 
-Causes interupt to CPU  
+Causes interrupt to CPU  
 
 ![Alt text](image-11.png)  
 
 ![Alt text](image-12.png)  
 
-Whenerva an interrupt occurs, how does computer know where to go?  
+Whenever an interrupt occurs, how does computer know where to go?  
 
 Stored in interrupt descriptor table    
 
@@ -199,7 +199,7 @@ Must be very fast
 
 ![Alt text](image-14.png)  
 
-Campableof writing into main memory 
+Capable of writing into main memory 
 
 ![Alt text](image-15.png)  
 
@@ -214,29 +214,29 @@ device driver vs controller
 ![Alt text](image-42.png)  
 
 Random access vs direct access 
-* Rnadom: access time to any place is the same
-* Direct: Access time may vary, but we are going to it striaghtaway  
+* Random: access time to any place is the same
+* Direct: Access time may vary, but we are going to it straightaway  
 
 Asynch transfer: 
 
-Timing diference
+Timing difference
 
 ![Alt text](image-18.png)  
 
 How large is the device driver code?  
-* conditinos tha it has to handle are large  
+* Conditions tha it has to handle are large  
 
 ![Alt text](image-19.png)  
 
 DMA for character devices?  
-* Doesnt make sense for ti  
+* doesn't make sense for ti  
 
 ![Alt text](image-20.png)  
 
 ![Alt text](image-21.png)  
 
 Is a clock an IO device?  
-* Does clock keep runnig when you turn the computer off?  
+* Does clock keep running when you turn the computer off?  
 * Clock on motherboard has its own battery and keeps running 
 
 ![Alt text](image-22.png)  
@@ -258,11 +258,11 @@ Is a clock an IO device?
 ![Alt text](image-29.png)  
 
 Who handles the errors?  
-* Progrmamers xdd  
+* Programmers xdd  
 
 ![Alt text](image-30.png)  
 
-All IO instructions are privilieged  
+All IO instructions are privileged  
 * Helps against DoS attacks, etc  
 
 DO not let user program carry out any IO calls directly
