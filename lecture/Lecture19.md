@@ -116,7 +116,7 @@ In what order should we process them?
 
 ![Alt text](img/Lecture18/image-42.png)  
 
-Min maxxing forsenInsanse
+Min maxing forsenInsane
 
 Minimize seek time  
 * Unsuccessful here  

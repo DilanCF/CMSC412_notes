@@ -9,29 +9,29 @@ We have to recognize whats going on
 
 WHole program must be in memory  
 
-If we make provision so tht without havnig whole program in mem @ exec, we could still crry on with execution of programs  
+If we make provision so tht without having whole program in mem @ exec, we could still carry on with execution of programs  
 
-Starting point: Ability to execute partilly loaed programs
+Starting point: Ability to execute partially loaded programs
 
-decouploing the address space that a program is structured in and the physical address space  
+Decoupling the address space that a program is structured in and the physical address space  
 
 ![Alt text](image-2.png)  
 
 By mapping at runtime, can decouple the two 
 
-WHy do we need logicla address space to be larger?  
+WHy do we need logical address space to be larger?  
 * We as programmers need to facilitate any bloating that occurs  
-* Typically, the demand we place we put on emmeory doubles every 3-5 years  
-* OUr ablilty to have that much memory on phycisal hardware cannot keep up with demand  
+* Typically, the demand we place we put on memory doubles every 3-5 years  
+* Our ability to have that much memory on physical hardware cannot keep up with demand  
 
-Are we wasting this spce in virtaul memory space?  
+Are we wasting this space in virtual memory space?  
 * We are writing  in higher level language that is then translated to machine language
   * Adds overhead  
 * Can always write smaller languages, but requires lower-level languages  
 
 Raspberry Pi and Arduino have pretty large memories but still require tight code  
 
-If wiritng in higher -lvl lagnuages is inefficietn, why do we sill use them?
+If writing in higher-lvl languages is inefficient, why do we sill use them?
 * Human factor: human efficiency is important  
 
 Whatever time we leave on the table is made up for in how well humans can write code thanks to modern programming languages  
@@ -43,16 +43,16 @@ Virtual address space: All that the compilers are dealing with
 
 Everything is with respect to an address space  
 
-We want to have an address sapce to bemappped in th end  
+We want to have an address space to be mapped in the end  
 
-Maintainning tables is one way to do address translation  
+Maintaining tables is one way to do address translation  
 
 What do we keep in memory?
 * up to implementation  
 
 ![Alt text](image-4.png)  
 
-Even when we are talking about virtual address sapce, it needs to exist somewhere
+Even when we are talking about virtual address space, it needs to exist somewhere
 * USually secondary storage  
 
 From which, whenever we need any part, we take it in  
@@ -69,7 +69,7 @@ Bring in entire process and swap entire space when we have a new process
 
 ![Alt text](image-6.png)   
 
-Shared in 2 virtauly address spaces  
+Shared in 2 virtually address spaces  
 
 SHared paces must be reentrant and occupy same spaces in virtual spaces  
 
@@ -207,9 +207,9 @@ Page fault rate depends on smaller memory, smaller amount of pages, and locality
 
 Less page faults will occur when we prioritize the pages that are cesses the most  
 
-Whatever page was requested, we ened to bring it in  
+Whatever page was requested, we need to bring it in  
 
-If there is a page not to be referecnes at all and we toss it, not consequences  
+If there is a page not to be references at all and we toss it, not consequences  
 
 The page that is used longest time in the future is tossed, will give better performance  
 
@@ -226,14 +226,14 @@ If a page is to be tossed, do we write it back?
 
 ![Alt text](img/Lecture16/image-23.png)  
 
-Wnt to reduce the e=EAT that miniimzes number of page faults  
+Want to reduce the EAT that minimizes number of page faults  
 
 ![Alt text](img/Lecture16/image-24.png)  
 
-Nytime you write to page, modify bit is carried over  
+Anytime you write to page, modify bit is carried over  
 * Tells us if a page has been modified  
 
-If not modifyed, copy already exists  
+If not modified, copy already exists  
 * replacement policy will use this bit  
 
 ![Alt text](img/Lecture16/image-25.png)  
