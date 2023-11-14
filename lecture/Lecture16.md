@@ -3,7 +3,7 @@
 
 ## Virtual memory  
 
-![Alt text](image-1.png)  
+![Alt text](img/Lecture16-17/image-1.png)  
 
 We have to recognize whats going on  
 
@@ -15,7 +15,7 @@ Starting point: Ability to execute partially loaded programs
 
 Decoupling the address space that a program is structured in and the physical address space  
 
-![Alt text](image-2.png)  
+![Alt text](img/Lecture16-17/image-2.png)  
 
 By mapping at runtime, can decouple the two 
 
@@ -36,7 +36,7 @@ If writing in higher-lvl languages is inefficient, why do we sill use them?
 
 Whatever time we leave on the table is made up for in how well humans can write code thanks to modern programming languages  
 
-![Alt text](image-3.png)  
+![Alt text](img/Lecture16-17/image-3.png)  
 
 Virtual address space: All that the compilers are dealing with  
 * Address spaces
@@ -50,7 +50,7 @@ Maintaining tables is one way to do address translation
 What do we keep in memory?
 * up to implementation  
 
-![Alt text](image-4.png)  
+![Alt text](img/Lecture16-17/image-4.png)  
 
 Even when we are talking about virtual address space, it needs to exist somewhere
 * USually secondary storage  
@@ -61,25 +61,25 @@ The full copy of virtual memory space exists on the secondary storage
 
 We should be able to bring back in from secondary into physical memory  
 
-![Alt text](image-5.png)  
+![Alt text](img/Lecture16-17/image-5.png)  
 
 What wre we doing at the beginning?
 
 Bring in entire process and swap entire space when we have a new process  
 
-![Alt text](image-6.png)   
+![Alt text](img/Lecture16-17/image-6.png)   
 
 Shared in 2 virtually address spaces  
 
 SHared paces must be reentrant and occupy same spaces in virtual spaces  
 
-![Alt text](image-7.png)  
+![Alt text](img/Lecture16-17/image-7.png)  
 
 When we do this kind of swapping, due to the address space needing to be contiguous, we could get external fragmentation  
 
 Even though total amount of free space is larger, since it is not contiguous, we cannot make use of it  
 
-![Alt text](img/Lecture16/image-8.png)  
+![Alt text](img/Lecture16-17/image-8.png)  
 
 We load a page only when a reference to the page is made  
 
@@ -101,11 +101,11 @@ Interrupt detected in HW
 
 ***21:40***
 
-![Alt text](img/Lecture16/image-9.png)  
+![Alt text](img/Lecture16-17/image-9.png)  
 
 We assume in our programming that any programs can be stopped anytime for any amount of time w/o consequence  
 
-![Alt text](img/Lecture16/image-10.png)  
+![Alt text](img/Lecture16-17/image-10.png)  
 
 Each page table entry has valid-invalid but and the frame number  
 
@@ -113,9 +113,9 @@ page table has an entry for every page in virtual address space
 
 If page from virtual memory space is not in memory, must keep track in page table  
 
-![Alt text](img/Lecture16/image-11.png)  
+![Alt text](img/Lecture16-17/image-11.png)  
 
-![Alt text](img/Lecture16/image-12.png)  
+![Alt text](img/Lecture16-17/image-12.png)  
 
 First reference?  
 * When you reference firsts time and its not there, page comes in.
@@ -136,7 +136,7 @@ If any registers have been modified, must bring them back
 
 State of process saved at any interrupt  
 
-![Alt text](img/Lecture16/image-13.png)  
+![Alt text](img/Lecture16-17/image-13.png)  
 
 1. Start with instruction load m
 2. Go to page with invalid bit
@@ -151,7 +151,7 @@ How can it find it?
 6. page frame modified  
 
 
-![Alt text](img/Lecture16/image-14.png)  
+![Alt text](img/Lecture16-17/image-14.png)  
 
 How do we start the process?  
 
@@ -185,7 +185,7 @@ Page faults: Very expensive
 * next instruction then pages there
 * Locality of reference (look up)
 * 
-![Alt text](img/Lecture16/image-15.png)  
+![Alt text](img/Lecture16-17/image-15.png)  
 
 If we do a block move, and go to a location not on a page that is in memory
 * Restart?  
@@ -193,13 +193,13 @@ If we do a block move, and go to a location not on a page that is in memory
 
 Depends on machine supporting partially executed programming  
 
-![Alt text](img/Lecture16/image-16.png) 
+![Alt text](img/Lecture16-17/image-16.png) 
 
 Getting rid of disk IO would greatly enhance performance  
 
-![Alt text](img/Lecture16/image-17.png)  
+![Alt text](img/Lecture16-17/image-17.png)  
 
-![Alt text](img/Lecture16/image-18.png)  
+![Alt text](img/Lecture16-17/image-18.png)  
 
 Page fault rate depends on smaller memory, smaller amount of pages, and locality  
 * Amount of physical memory given to process
@@ -218,17 +218,17 @@ The page that is used longest time in the future is tossed, will give better per
 If a page is to be tossed, do we write it back?
 * No  
 
-![Alt text](img/Lecture16/image-20.png)  
+![Alt text](img/Lecture16-17/image-20.png)  
 
-![Alt text](img/Lecture16/image-21.png)  
+![Alt text](img/Lecture16-17/image-21.png)  
 
-![Alt text](img/Lecture16/image-22.png)  
+![Alt text](img/Lecture16-17/image-22.png)  
 
-![Alt text](img/Lecture16/image-23.png)  
+![Alt text](img/Lecture16-17/image-23.png)  
 
 Want to reduce the EAT that minimizes number of page faults  
 
-![Alt text](img/Lecture16/image-24.png)  
+![Alt text](img/Lecture16-17/image-24.png)  
 
 Anytime you write to page, modify bit is carried over  
 * Tells us if a page has been modified  
@@ -236,16 +236,16 @@ Anytime you write to page, modify bit is carried over
 If not modified, copy already exists  
 * replacement policy will use this bit  
 
-![Alt text](img/Lecture16/image-25.png)  
+![Alt text](img/Lecture16-17/image-25.png)  
 
-![Alt text](img/Lecture16/image-26.png)  
+![Alt text](img/Lecture16-17/image-26.png)  
 
 Which free frame to use when found does not really matter  
 * Doesn't make a difference in the end  
 
-![Alt text](img/Lecture16/image-27.png)  
+![Alt text](img/Lecture16-17/image-27.png)  
 
-![Alt text](img/Lecture16/image-28.png)  
+![Alt text](img/Lecture16-17/image-28.png)  
 
 *Look these up*  
 
