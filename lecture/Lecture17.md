@@ -1,14 +1,14 @@
 # CMSC412 Lecture 17  
 > 10-26  
 
-## Virtual memory 2 electric boogalo
+## Virtual memory 2 electric boogaloo
 <sub>yeah i know i made that joke before kiss my ass</sub> 
 
 ![Alt text](img/Lecture16/image-28.png)  
 
 Basic issue: page replacement algorithm  
-* Ibjective: page access time is dependment on page fault rate  
-  * Want to reduce this given same noumber of ages existing
+* Objective: page access time is dependent on page fault rate  
+  * Want to reduce this given same number of ages existing
 
 We start with reference string that identifies page numbers  
 
@@ -22,7 +22,7 @@ More memory, less page faults
 
 How to asses? 
 
-There ar 3 page frames avaialable  
+There are 3 page frames available  
 
 Anytime we need to roll in a page (replace) mark as page fault with star  
 
@@ -51,7 +51,7 @@ REMEMBER: This is merely a measure of how well your algorithm works, and cannot 
 You continue, doing the same process whenever you encounter a page fault  
 
 In the ref string,how many essential faults are there?  
-* Determine how many different paes are there in page string
+* Determine how many different pages are there in page string
   * IN our example, there are 6 (0,1,2,3,4,7)
   * We MUST have a page fault for each of these (They have to be brought in for the first time at some time during all this)  
 
@@ -104,16 +104,16 @@ Search only done when page page replacement is required
 
 Page replacement is time consuming anyways, so can afford add this function  
 
-Stack implementation to avoid search done in counter implemenation  
+Stack implementation to avoid search done in counter implementation  
 
-No earch for replacement: WHatever is at the bottom, just pick that up  
+No search for replacement: WHatever is at the bottom, just pick that up  
 
 **TLDR**  
 *Counter ~~Strike~~ implementation*  
-* For evyr ref, min amount of work (copy counter)
-* Morework when replacement neees to be done (Search for smallest counter, etc.)
+* For every ref, min amount of work (copy counter)
+* More work when replacement needs to be done (Search for smallest counter, etc.)
 *Stack implementation*  
-* For every page ref, retsructure linked list
+* For every page ref, restructure linked list
 * Work for page replacement is minimal  
 
 ![Alt text](img/Lecture16/image-38.png)  
@@ -124,11 +124,11 @@ Here, we are making a reference to 7. Therefore, we move 7 to the top and shift 
 
 For any of these approached, new HW req.  
 
-Sonce the ref bit is init'd to 0, all those pages that have 0 for that bit have not been refrenced yet.  
-* note that this is only an approximation becasue we do not know the order in which they were ref'd  
+Since the ref bit is init'd to 0, all those pages that have 0 for that bit have not been referenced yet.  
+* note that this is only an approximation because we do not know the order in which they were ref'd  
 * Very little additional work needed  
   * Kinda similar to the clock algo  
-  * In clock algo, need to read the clock (sys call sometimes, leding to overhead)
+  * In clock algo, need to read the clock (sys call sometimes, leading to overhead)
 
 2nd chance: 
 
@@ -136,11 +136,11 @@ Sonce the ref bit is init'd to 0, all those pages that have 0 for that bit have 
 
  *Video on 2nd chance algo*  
 
- Basically, when a page gets refrenced, you set the bit. WHen it comes time for page replacement,if a page is set to be replaced BUT it has the refrence bit, it gets a "2nd chance" and does not get replaced  
+ Basically, when a page gets referenced, you set the bit. WHen it comes time for page replacement,if a page is set to be replaced BUT it has the reference bit, it gets a "2nd chance" and does not get replaced  
 
 ![Alt text](img/Lecture16/image-41.png)  
 
-Modifyed bit: When a bit is modified instead of being refrenced  
+Modified bit: When a bit is modified instead of being referenced  
 
 Obj: Come up with the ways to implement reasonable things using the knowledge we have currently  
 * Clock scheme  
@@ -159,7 +159,7 @@ Mark some pages as free frame, but have not modded them
 
 We know where it belongs
 * If used, link it from free-page list  
-* Early UNIX hused this in the past  
+* Early UNIX used this in the past  
 
 ![Alt text](img/Lecture16/image-44.png)  
 
@@ -181,14 +181,14 @@ How many are minimum number of pages to give?
 
 Once we have alloc'd 20 pages to process, replaces from within it's allocated space  
 
-If we're running a prog with this proporitonal allocation, how can we make it run better?  
+If we're running a prog with this proportional allocation, how can we make it run better?  
 * No page faults?  
 
 Say the content for prog. is in 5 pages  
 * Declare array for 200 pages  
 * OS thinks process siz is 205
-* Allocs more pages than needed
-* MOre than 5, all actula pages using will be in emmory and run fast  
+* Allocates more pages than needed
+* More than 5, all actual pages using will be in memory and run fast  
 
 ![Alt text](img/Lecture16/image-47.png)  
 
@@ -196,24 +196,24 @@ Say the content for prog. is in 5 pages
 
 Global: Finding pag to replace, replace it from ny and every page in memory  
 
-Local: fixed set of frames allocd to me, and replace content of content of one of those page and this ???  
+Local: fixed set of frames allocated to me, and replace content of content of one of those page and this ???  
 
 What happens in global replacement? 
 * Taking pages from some process
-  * May eb in ready qyeye
+  * May be in ready queue
   * NOt currently active
-  * Gives beter throughput  
+  * Gives better throughput  
 
-LOcal
+Local
 * underutilized memory 
 
 ![Alt text](img/Lecture16/image-49.png)  
 
-Before: Assume wherever a page frame is, accesss time is the ame  
+Before: Assume wherever a page frame is, access time is the ame  
 
-Interacitons betwwen scheduling and mem management  
+Interactions between scheduling and mem management  
 
-Where threwad is run == may inporve memory access  
+Where thread is run == may improve memory access  
 
 ![Alt text](img/Lecture16/image-50.png)  
 
@@ -221,48 +221,46 @@ Where threwad is run == may inporve memory access
 
 ![Alt text](img/Lecture16/image-52.png)  
 
-More proceses, we eventually collapse
+More processes, we eventually collapse
 
-Eveyr process that can run in ready queue runs for very short time then page faults  
+Every process that can run in ready queue runs for very short time then page faults  
 
 Most processes are waiting for page faults  
 
-Thrashing occurs when we get lots of page ffaults  
-
-
+Thrashing occurs when we get lots of page faults  
 
 ![Alt text](img/Lecture16/image-53.png)  
 
 Anytime we are executing, we do i in a locality  
 
-When in 1, size definded by # pages belonging to th locality  
+When in 1, size defined by # pages belonging to the locality  
 
-If procsess has all pages in memory, for duration that pricess is in locality, no page faults  
+If process has all pages in memory, for duration that process is in locality, no page faults  
 
 ![Alt text](img/Lecture16/image-54.png)  
 
-If we knew wha the currentworking set (pages we need rn), we can do a god job  
+If we knew wha the current working set (pages we need rn), we can do a good job  
 
 How to define working set?  
 
-Which pages will be refed in the furture  
+Which pages will be refed in the future  
 
 ![Alt text](img/Lecture16/image-55.png)  
 
-At any time instant, look at how many pages have we refrenced in some time period  
+At any time instant, look at how many pages have we referenced in some time period  
 
-This leas to the connection with mulitprogramming  
+This leas to the connection with multiprogramming  
 
-Hwo do we know thrashing is occuring?  
+Hwo do we know thrashing is occurring?  
 * OS need to track page fault rate  
 
 ![Alt text](img/Lecture16/image-56.png)  
 
-Ans: Only keeping traxkc of one refeerence  
+Ans: Only keeping track of one reference  
 
 ![Alt text](img/Lecture16/image-57.png)  
 
-must be done on process by process bassis  
+must be done on process by process basis  
 
 ![Alt text](img/Lecture16/image-58.png)  
 
@@ -276,15 +274,15 @@ Last bullet: Done when we write back to the disk
 
 Kernel has to stay in memory  
 
-Kernel is not allways in memory
-* SOmetimes in free memory piool  
+Kernel is not always in memory
+* SOmetimes in free memory pool  
 
 Why must device IO memory be contiguous?  
-* Becsue od the DMA transfers, disk controller writes to phys address (usually next one). 
-* Addressing done by disk has no knowledge of virt address space
-  * doing it to memory dierct;y and in squential memeory space  
+* Because of the DMA transfers, disk controller writes to phys address (usually next one). 
+* Addressing done by disk has no knowledge of virtual address space
+  * doing it to memory directly and in sequential memory space  
 
-If on page frame bourndary, those page frames must stay in memory as IO continues  
+If on page frame boundary, those page frames must stay in memory as IO continues  
 
 ![Alt text](img/Lecture16/image-61.png)  
 
@@ -303,9 +301,9 @@ Look up slab allocation
 ![Alt text](img/Lecture16/image-67.png)  
 
 Allocate and preload certain number of pages?
-* Pro: IO is faster than doing bullk IO  
+* Pro: IO is faster than doing bulk IO  
   * Right kind of pages in memory, page faults will go down  
-* COn: May bring in pages that ar never used
+* Con: May bring in pages that ar never used
 
 Most modern OS's do not use this  
 * Given set of pages  
@@ -316,46 +314,17 @@ What should be the page size?
 * ^ , smaller page table size  
 * Biggest cost: seek time & rotational delay  
 * Page faults decrease  
-* Locaity sizegoes down 
+* Locality size goes down 
 
 ![Alt text](img/Lecture16/image-69.png)  
 
-All those pages whosw entries are in the TLB we do not pay th pealty of reading the page tbale from memory  
-* in single acces, can get word  
+All those pages whose entries are in the TLB we do not pay the penalty of reading the page table from memory  
+* in single access, can get word  
 
 Larger TLB reach, less read form page table need to be done
 * EAT decreases  
 
 Who would need to use 4 million byte size pages?  
-* Modeling, physics, high-data throughtput  
+* Modeling, physics, high-data throughput  
 
-![Alt text](img/Lecture16/image-70.png)  
-
-![Alt text](img/Lecture16/image-71.png)  
-
-![Alt text](img/Lecture16/image-72.png)  
-
-![Alt text](img/Lecture16/image-73.png)  
-
-![Alt text](img/Lecture16/image-74.png)  
-
-![Alt text](img/Lecture16/image-75.png)  
-
-![Alt text](img/Lecture16/image-76.png)  
-
-![Alt text](img/Lecture16/image-77.png)  
-
-![Alt text](img/Lecture16/image-78.png)  
-
-![Alt text](img/Lecture16/image-79.png)  
-
-![Alt text](img/Lecture16/image-80.png)  
-
-![Alt text](img/Lecture16/image-81.png)  
-
-![Alt text](img/Lecture16/image-82.png)  
-
-![Alt text](img/Lecture16/image-83.png)  
-
-![Alt text](img/Lecture16/image-84.png)  
 
