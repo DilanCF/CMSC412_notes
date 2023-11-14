@@ -3,7 +3,7 @@
 
 ## File systems  
 
-![Alt text](image-1.png)  
+![Alt text](img/Lecture20-21/image-1.png)  
 
 Long-trm sotrage of data  
 
@@ -67,9 +67,9 @@ Robustness is a property of the storage device
 
 As an owner, you should have the rigtht to declare who can and cannot access your files  
 
-![Alt text](image-2.png)  
+![Alt text](img/Lecture20-21/image-2.png)  
 
-![Alt text](image-3.png)  
+![Alt text](img/Lecture20-21/image-3.png)  
 
 WHen we talk about a file, a common conept is that it consists of a list of records  
 
@@ -89,7 +89,7 @@ Say you have an OS. What poriton of the code of the kerel is the file system?
 
 Needs to keep track of the files not coming into the system  
 
-![Alt text](image-4.png)  
+![Alt text](img/Lecture20-21/image-4.png)  
 
 These attributes shuold be stored on the secondary stoage along with the files themselves  
 
@@ -106,9 +106,9 @@ Issue: Talking about these files with unique names
   * Grouping these files, and keep track of metadata in this way  
   * Can quickly find out what files are in the folder  
 
-![Alt text](image-5.png)  
+![Alt text](img/Lecture20-21/image-5.png)  
 
-![Alt text](image-6.png)  
+![Alt text](img/Lecture20-21/image-6.png)  
 
 Remember: To carry out any operation on any file, need to execute program  
 
@@ -117,76 +117,50 @@ Part of file needs to come into file
 
 Before any program can access any file, file must be open  
 
-![Alt text](image-7.png)  
+![Alt text](img/Lecture20-21/image-7.png)  
 
-![Alt text](image-8.png)  
+![Alt text](img/Lecture20-21/image-8.png)  
 
 For every access made to file, need authorization
 * Dynamically done 
 
-![Alt text](image-9.png)  
+![Alt text](img/Lecture20-21/image-9.png)  
 
-![Alt text](image-10.png)  
+![Alt text](img/Lecture20-21/image-10.png)  
 
 Shared lock on readers  
 
-![Alt text](image-11.png)  
+![Alt text](img/Lecture20-21/image-11.png)  
 
-![Alt text](image-12.png)  
+![Alt text](img/Lecture20-21/image-12.png)  
 
 This system came about with Windows  
 
-![Alt text](image-13.png)  
+![Alt text](img/Lecture20-21/image-13.png)  
 
-![Alt text](image-14.png)  
+![Alt text](img/Lecture20-21/image-14.png)  
 
-![Alt text](image-15.png)  
+![Alt text](img/Lecture20-21/image-15.png)  
 
-![Alt text](image-16.png)  
+![Alt text](img/Lecture20-21/image-16.png)  
 
-![Alt text](image-17.png)  
+![Alt text](img/Lecture20-21/image-17.png)  
 
-![Alt text](image-18.png)  
+![Alt text](img/Lecture20-21/image-18.png)  
 
-![Alt text](image-19.png)  
+![Alt text](img/Lecture20-21/image-19.png)  
 
 ONly relevant poriton are brought in when needed  
 
-![Alt text](image-20.png)  
+![Alt text](img/Lecture20-21/image-20.png)  
 
-![Alt text](image-21.png)  
+![Alt text](img/Lecture20-21/image-21.png)  
 
-![Alt text](image-22.png)  
+![Alt text](img/Lecture20-21/image-22.png)  
 
-![Alt text](image-23.png)  
+![Alt text](img/Lecture20-21/image-23.png)  
 
 Ended here for some reason???
 
-![Alt text](image-24.png)  
 
-![Alt text](image-25.png)  
-
-![Alt text](image-26.png)  
-
-![Alt text](image-27.png)  
-
-![Alt text](image-28.png)  
-
-![Alt text](image-29.png)  
-
-![Alt text](image-30.png)  
-
-![Alt text](image-31.png)  
-
-![Alt text](image-32.png)  
-
-![Alt text](image-33.png)  
-
-![Alt text](image-34.png)  
-
-![Alt text](image-35.png)  
-
-![Alt text](image-36.png)  
-
-![Alt text](image-37.png)  
 
