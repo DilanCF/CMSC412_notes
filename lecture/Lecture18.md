@@ -28,7 +28,7 @@ Say we decide paging, segmentation or no?
 
 * Segmentation comes down to HW support and ???  
 
-![Alt text](img/Lecture18/image-59.png)
+![Alt text](img/Lecture18-19/image-59.png)
 
 In most of these things, make the page size == page on disk or sector on disk ???  
 
@@ -36,7 +36,7 @@ Concerned with how to handle pages!!
 
 Swapping: Take out all pages alloc to a process and put it in storage to free space up for other processes  
 
-![Alt text](img/Lecture18/image-60.png)
+![Alt text](img/Lecture18-19/image-60.png)
 
 Pageout daemon and works like clock algo
 * For each page, we support one extra bit  
@@ -45,7 +45,7 @@ When paging out, just put it on a free page list
 * Do not change contents!
 * If e get a reference to it, jst find it in list  
 
-![Alt text](img/Lecture18/image-61.png)
+![Alt text](img/Lecture18-19/image-61.png)
 
 Say the machine has 32MB of memory
 * what number of free pages? Portion of memory for free pages?
@@ -53,22 +53,22 @@ Say the machine has 32MB of memory
   * How big is `lotsfree`?
     * 1/3 at first, ???
 
-![Alt text](img/Lecture18/image-62.png)
+![Alt text](img/Lecture18-19/image-62.png)
 
-![Alt text](img/Lecture18/image-1.png) 
+![Alt text](img/Lecture18-19/image-1.png) 
 
 Overloaded: Too many page faults  
 * Swapping avoid us entering thrashing condition!  
 
 So much paging done that ??? becomes low  
 
-![Alt text](img/Lecture18/image-2.png)  
+![Alt text](img/Lecture18-19/image-2.png)  
 
-![Alt text](img/Lecture18/image-3.png)  
+![Alt text](img/Lecture18-19/image-3.png)  
 
 Based on 4.3 UNIX  
 
-![Alt text](img/Lecture18/image-4.png)  
+![Alt text](img/Lecture18-19/image-4.png)  
 
 *Look this up*  
 
@@ -77,20 +77,20 @@ The primary ach on which this was implemented was ???
 HW did not provide modified bit. Why?
 * we dunno lol  
 
-![Alt text](img/Lecture18/image-5.png)  
+![Alt text](img/Lecture18-19/image-5.png)  
 
-![Alt text](img/Lecture18/image-6.png)  
+![Alt text](img/Lecture18-19/image-6.png)  
 
 Instead of just getting page that the default is on, we get some more along with it ???
 
-![Alt text](img/Lecture18/image-7.png)  
+![Alt text](img/Lecture18-19/image-7.png)  
 
-![Alt text](img/Lecture18/image-8.png)  
+![Alt text](img/Lecture18-19/image-8.png)  
 
 
 ## Mass Storage
 
-![Alt text](img/Lecture18/image-9.png)  
+![Alt text](img/Lecture18-19/image-9.png)  
 
 So far, we have talked about CPU and memory, etc.  
 
@@ -107,13 +107,13 @@ Magnetic disks remain "dominant" for the past few decades
 
 In order to read or write, must remain under the head  
 
-![Alt text](img/Lecture18/image-10.png)  
+![Alt text](img/Lecture18-19/image-10.png)  
 
-![Alt text](img/Lecture18/image-11.png)  
+![Alt text](img/Lecture18-19/image-11.png)  
 
-![Alt text](img/Lecture18/image-12.png)  
+![Alt text](img/Lecture18-19/image-12.png)  
 
-![Alt text](img/Lecture18/image-13.png)  
+![Alt text](img/Lecture18-19/image-13.png)  
 
 How long does it tak to go over the track?  
 * Seek time
@@ -122,21 +122,21 @@ How long does it tak to go over the track?
 * Rotation delay
   * Max can be the time it takes to rotate once, min once
 
-![Alt text](img/Lecture18/image-14.png)  
+![Alt text](img/Lecture18-19/image-14.png)  
 
-![Alt text](img/Lecture18/image-15.png)  
+![Alt text](img/Lecture18-19/image-15.png)  
 
-![Alt text](img/Lecture18/image-16.png)  
+![Alt text](img/Lecture18-19/image-16.png)  
 
-![Alt text](img/Lecture18/image-17.png)  
+![Alt text](img/Lecture18-19/image-17.png)  
 
-![Alt text](img/Lecture18/image-18.png)  
+![Alt text](img/Lecture18-19/image-18.png)  
 
-![Alt text](img/Lecture18/image-19.png)  
+![Alt text](img/Lecture18-19/image-19.png)  
 
-![Alt text](img/Lecture18/image-20.png)  
+![Alt text](img/Lecture18-19/image-20.png)  
 
-![Alt text](img/Lecture18/image-21.png)  
+![Alt text](img/Lecture18-19/image-21.png)  
 Can we do better than just estimating averages?
 * Only if we know where everything is beforehand  
 
@@ -145,41 +145,41 @@ Transfer time depends on where we are making transfer from
 These days, most disk drives have their own cache
 * Whenever you request sector, whole track copy is stored in the cache  
 
-![Alt text](img/Lecture18/image-22.png)  
+![Alt text](img/Lecture18-19/image-22.png)  
 
 What does solid state mean?
 * Solid state parts: No electromechanical movement 
 * Made to be plug n' play  
 
-![Alt text](img/Lecture18/image-23.png)  
+![Alt text](img/Lecture18-19/image-23.png)  
 
-![Alt text](img/Lecture18/image-24.png)  
+![Alt text](img/Lecture18-19/image-24.png)  
 
 100TB drives not as popular due to failure rate  
 
 SSD have limited read write capability  
 
-![Alt text](img/Lecture18/image-25.png)  
+![Alt text](img/Lecture18-19/image-25.png)  
 
-![Alt text](img/Lecture18/image-26.png)  
+![Alt text](img/Lecture18-19/image-26.png)  
 
-![Alt text](img/Lecture18/image-27.png)  
+![Alt text](img/Lecture18-19/image-27.png)  
 
-![Alt text](img/Lecture18/image-28.png)  
+![Alt text](img/Lecture18-19/image-28.png)  
 
-![Alt text](img/Lecture18/image-29.png)  
+![Alt text](img/Lecture18-19/image-29.png)  
 
-![Alt text](img/Lecture18/image-30.png)  
+![Alt text](img/Lecture18-19/image-30.png)  
 
-![Alt text](img/Lecture18/image-31.png)  
+![Alt text](img/Lecture18-19/image-31.png)  
 
-![Alt text](img/Lecture18/image-32.png)  
+![Alt text](img/Lecture18-19/image-32.png)  
 
-![Alt text](img/Lecture18/image-33.png)  
+![Alt text](img/Lecture18-19/image-33.png)  
 
-![Alt text](img/Lecture18/image-34.png)  
+![Alt text](img/Lecture18-19/image-34.png)  
 
-![Alt text](img/Lecture18/image-35.png)  
+![Alt text](img/Lecture18-19/image-35.png)  
 
 ![Alt text](img/Lecture18/image-36.png)  
 

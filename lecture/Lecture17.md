@@ -134,7 +134,7 @@ Since the ref bit is init'd to 0, all those pages that have 0 for that bit have 
 
 ![Alt text](img/Lecture16-17/image-40.png)  
 
- *Video on 2nd chance algo*  
+ [Video on 2nd chance algo](https://www.youtube.com/watch?v=voiL2-nQmlU&ab_channel=BBarters)  
 
  Basically, when a page gets referenced, you set the bit. WHen it comes time for page replacement,if a page is set to be replaced BUT it has the reference bit, it gets a "2nd chance" and does not get replaced  
 
@@ -219,7 +219,9 @@ Where thread is run == may improve memory access
 
 ![Alt text](img/Lecture16-17/image-51.png)  
 
-![Alt text](img/Lecture16-17/image-52.png)  
+![Alt text](img/Lecture16-17/image-52.png) 
+
+[Video on thrashing](https://www.youtube.com/watch?v=IyWaK8pbN6A&ab_channel=GateSmashers)
 
 More processes, we eventually collapse
 
@@ -286,6 +288,8 @@ If on page frame boundary, those page frames must stay in memory as IO continues
 
 ![Alt text](img/Lecture16-17/image-61.png)  
 
+[Video on Buddy System](https://www.youtube.com/watch?v=j9sOpKm5goQ&ab_channel=SudhakarAtchala)
+
 ![Alt text](img/Lecture16-17/image-62.png)  
 
 ![Alt text](img/Lecture16-17/image-63.png)  
@@ -318,10 +322,12 @@ What should be the page size?
 
 ![Alt text](img/Lecture16-17/image-69.png)  
 
+[Video on TLB Reach](https://www.youtube.com/watch?v=ID0IoJKdyyQ&ab_channel=Ekeeda)
+
 All those pages whose entries are in the TLB we do not pay the penalty of reading the page table from memory  
 * in single access, can get word  
 
-Larger TLB reach, less read form page table need to be done
+Larger TLB reach, less read from page table need to be done
 * EAT decreases  
 
 Who would need to use 4 million byte size pages?  
