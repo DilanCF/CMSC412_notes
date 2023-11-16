@@ -4,7 +4,7 @@
 ## Virtual memory 2 electric boogaloo
 <sub>yeah i know i made that joke before kiss my ass</sub> 
 
-![Alt text](img/Lecture16/image-28.png)  
+![Alt text](img/Lecture16-17/image-28.png)  
 
 Basic issue: page replacement algorithm  
 * Objective: page access time is dependent on page fault rate  
@@ -14,11 +14,11 @@ We start with reference string that identifies page numbers
 
 Given algo, how will it act  
 
-![Alt text](img/Lecture16/image-29.png)  
+![Alt text](img/Lecture16-17/image-29.png)  
 
 More memory, less page faults  
 
-![Alt text](img/Lecture16/image-30.png)  
+![Alt text](img/Lecture16-17/image-30.png)  
 
 How to asses? 
 
@@ -30,13 +30,13 @@ First 3 are all page faults since the frames are all empty at first
 * 4th is a page fault since 2 does not exist  
 * We continue replacing the oldest number that exists within the frames until the reference string has been satisfied  
 
-![Alt text](img/Lecture16/image-31.png)  
+![Alt text](img/Lecture16-17/image-31.png)  
 
 Anomaly of *FIFO* systems  
 
-![Alt text](img/Lecture16/image-32.png)  
+![Alt text](img/Lecture16-17/image-32.png)  
 
-![Alt text](img/Lecture16/image-33.png)  
+![Alt text](img/Lecture16-17/image-33.png)  
 
 Here, we first have the 3 essential page faults. After this, we have 2 trying to butt in. Out of 7, 0, and 1, which one should be replaced?  
 
@@ -55,11 +55,11 @@ In the ref string,how many essential faults are there?
   * IN our example, there are 6 (0,1,2,3,4,7)
   * We MUST have a page fault for each of these (They have to be brought in for the first time at some time during all this)  
 
-![Alt text](img/Lecture16/image-34.png)  
+![Alt text](img/Lecture16-17/image-34.png)  
 
 As we increase memory (page frames), we have the same amount of page faults or less  
 
-![Alt text](img/Lecture16/image-35.png)  
+![Alt text](img/Lecture16-17/image-35.png)  
 
 First three are essential faults  
 
@@ -92,9 +92,9 @@ These algos are also called stack algos
 * Where do we maintain the stack in this case?
 * Will be answered later on  
 
-![Alt text](img/Lecture16/image-36.png)  
+![Alt text](img/Lecture16-17/image-36.png)  
 
-![Alt text](img/Lecture16/image-37.png)  
+![Alt text](img/Lecture16-17/image-37.png)  
 
 For every ref., only making change in one entry of the page table
 * Add one more column that keeps track of this counter
@@ -116,11 +116,11 @@ No search for replacement: WHatever is at the bottom, just pick that up
 * For every page ref, restructure linked list
 * Work for page replacement is minimal  
 
-![Alt text](img/Lecture16/image-38.png)  
+![Alt text](img/Lecture16-17/image-38.png)  
 
 Here, we are making a reference to 7. Therefore, we move 7 to the top and shift the rest of the pages "down"  
 
-![Alt text](img/Lecture16/image-39.png)  
+![Alt text](img/Lecture16-17/image-39.png)  
 
 For any of these approached, new HW req.  
 
@@ -132,25 +132,25 @@ Since the ref bit is init'd to 0, all those pages that have 0 for that bit have 
 
 2nd chance: 
 
-![Alt text](img/Lecture16/image-40.png)  
+![Alt text](img/Lecture16-17/image-40.png)  
 
  *Video on 2nd chance algo*  
 
  Basically, when a page gets referenced, you set the bit. WHen it comes time for page replacement,if a page is set to be replaced BUT it has the reference bit, it gets a "2nd chance" and does not get replaced  
 
-![Alt text](img/Lecture16/image-41.png)  
+![Alt text](img/Lecture16-17/image-41.png)  
 
 Modified bit: When a bit is modified instead of being referenced  
 
 Obj: Come up with the ways to implement reasonable things using the knowledge we have currently  
 * Clock scheme  
 
-![Alt text](img/Lecture16/image-42.png)  
+![Alt text](img/Lecture16-17/image-42.png)  
 
 These two algorithms represent two schools of thought  
 * Neither are really used though  
 
-![Alt text](img/Lecture16/image-43.png)  
+![Alt text](img/Lecture16-17/image-43.png)  
 
 Bullet 2:  
 When backing store not busy, keep writing on 2nd storage and mark as clean pages, since copy on secondary storage i same as copy in memory  
@@ -161,7 +161,7 @@ We know where it belongs
 * If used, link it from free-page list  
 * Early UNIX used this in the past  
 
-![Alt text](img/Lecture16/image-44.png)  
+![Alt text](img/Lecture16-17/image-44.png)  
 
 IO done for page done to OS
 * From OS, copies to user memory space  
@@ -171,13 +171,13 @@ Takes time to perform these actions
 
 Mem to mem operations happen to facilitate this  
 
-![Alt text](img/Lecture16/image-45.png)  
+![Alt text](img/Lecture16-17/image-45.png)  
 
 How many are minimum number of pages to give?  
 * Pure demand paging: 0
 * maximum: Alloc all pages in virtual address space
 
-![Alt text](img/Lecture16/image-46.png)  
+![Alt text](img/Lecture16-17/image-46.png)  
 
 Once we have alloc'd 20 pages to process, replaces from within it's allocated space  
 
@@ -190,9 +190,9 @@ Say the content for prog. is in 5 pages
 * Allocates more pages than needed
 * More than 5, all actual pages using will be in memory and run fast  
 
-![Alt text](img/Lecture16/image-47.png)  
+![Alt text](img/Lecture16-17/image-47.png)  
 
-![Alt text](img/Lecture16/image-48.png)  
+![Alt text](img/Lecture16-17/image-48.png)  
 
 Global: Finding pag to replace, replace it from ny and every page in memory  
 
@@ -207,7 +207,7 @@ What happens in global replacement?
 Local
 * underutilized memory 
 
-![Alt text](img/Lecture16/image-49.png)  
+![Alt text](img/Lecture16-17/image-49.png)  
 
 Before: Assume wherever a page frame is, access time is the ame  
 
@@ -215,11 +215,11 @@ Interactions between scheduling and mem management
 
 Where thread is run == may improve memory access  
 
-![Alt text](img/Lecture16/image-50.png)  
+![Alt text](img/Lecture16-17/image-50.png)  
 
-![Alt text](img/Lecture16/image-51.png)  
+![Alt text](img/Lecture16-17/image-51.png)  
 
-![Alt text](img/Lecture16/image-52.png)  
+![Alt text](img/Lecture16-17/image-52.png)  
 
 More processes, we eventually collapse
 
@@ -229,7 +229,7 @@ Most processes are waiting for page faults
 
 Thrashing occurs when we get lots of page faults  
 
-![Alt text](img/Lecture16/image-53.png)  
+![Alt text](img/Lecture16-17/image-53.png)  
 
 Anytime we are executing, we do i in a locality  
 
@@ -237,7 +237,7 @@ When in 1, size defined by # pages belonging to the locality
 
 If process has all pages in memory, for duration that process is in locality, no page faults  
 
-![Alt text](img/Lecture16/image-54.png)  
+![Alt text](img/Lecture16-17/image-54.png)  
 
 If we knew wha the current working set (pages we need rn), we can do a good job  
 
@@ -245,7 +245,7 @@ How to define working set?
 
 Which pages will be refed in the future  
 
-![Alt text](img/Lecture16/image-55.png)  
+![Alt text](img/Lecture16-17/image-55.png)  
 
 At any time instant, look at how many pages have we referenced in some time period  
 
@@ -254,23 +254,23 @@ This leas to the connection with multiprogramming
 Hwo do we know thrashing is occurring?  
 * OS need to track page fault rate  
 
-![Alt text](img/Lecture16/image-56.png)  
+![Alt text](img/Lecture16-17/image-56.png)  
 
 Ans: Only keeping track of one reference  
 
-![Alt text](img/Lecture16/image-57.png)  
+![Alt text](img/Lecture16-17/image-57.png)  
 
 must be done on process by process basis  
 
-![Alt text](img/Lecture16/image-58.png)  
+![Alt text](img/Lecture16-17/image-58.png)  
 
 Goes up due to change in locality  
 
-![Alt text](img/Lecture16/image-59.png)  
+![Alt text](img/Lecture16-17/image-59.png)  
 
 Last bullet: Done when we write back to the disk
 
-![Alt text](img/Lecture16/image-60.png)  
+![Alt text](img/Lecture16-17/image-60.png)  
 
 Kernel has to stay in memory  
 
@@ -284,21 +284,21 @@ Why must device IO memory be contiguous?
 
 If on page frame boundary, those page frames must stay in memory as IO continues  
 
-![Alt text](img/Lecture16/image-61.png)  
+![Alt text](img/Lecture16-17/image-61.png)  
 
-![Alt text](img/Lecture16/image-62.png)  
+![Alt text](img/Lecture16-17/image-62.png)  
 
-![Alt text](img/Lecture16/image-63.png)  
+![Alt text](img/Lecture16-17/image-63.png)  
 
-![Alt text](img/Lecture16/image-64.png)  
+![Alt text](img/Lecture16-17/image-64.png)  
 
 Look up slab allocation  
 
-![Alt text](img/Lecture16/image-65.png)  
+![Alt text](img/Lecture16-17/image-65.png)  
 
-![Alt text](img/Lecture16/image-66.png)  
+![Alt text](img/Lecture16-17/image-66.png)  
 
-![Alt text](img/Lecture16/image-67.png)  
+![Alt text](img/Lecture16-17/image-67.png)  
 
 Allocate and preload certain number of pages?
 * Pro: IO is faster than doing bulk IO  
@@ -308,7 +308,7 @@ Allocate and preload certain number of pages?
 Most modern OS's do not use this  
 * Given set of pages  
 
-![Alt text](img/Lecture16/image-68.png)  
+![Alt text](img/Lecture16-17/image-68.png)  
 
 What should be the page size?  
 * ^ , smaller page table size  
@@ -316,7 +316,7 @@ What should be the page size?
 * Page faults decrease  
 * Locality size goes down 
 
-![Alt text](img/Lecture16/image-69.png)  
+![Alt text](img/Lecture16-17/image-69.png)  
 
 All those pages whose entries are in the TLB we do not pay the penalty of reading the page table from memory  
 * in single access, can get word  
