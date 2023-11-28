@@ -1,6 +1,10 @@
 # CMSC412 Lecture 22  
 > 11-14  
 
+## Security  
+
+He didn't really go over these slide, more so he read off of them for the most part. Some small comments that he made that I thought were worthwhile I have included, but somethings I didn't cus I took ENEE457 last year and most f the concepts form that class are repeated here (albeit in a much more watered down way)
+
 ![Alt text](image-1.png)  
 
 ![Alt text](image-2.png)  
