@@ -20,7 +20,8 @@ Prof's OH: anytime* (Really by appointment)
 Good faith attempt requirement in play  
 
 Need to subscribe to textbook >_>  
-* $64 *dies of cringe*  
+* $64  
+![Alt text](img/Lecture01/dies-from-cringe.gif)
 
 Questions will be graded, will count as participation  
 
@@ -64,4 +65,4 @@ How to manage all these things?
 
 Without the operating system, there is very little that you can do  
 
-*ended class 30 minutes early forsenY*
+*ended class 30 minutes early ![Alt text](img/Lecture01/image-1.png)*

@@ -9,7 +9,7 @@ Basic functions of the CPU
 *Today*:  
 Take CPU details for the CPU we will use in this class (x86)  
 
-ONe thing we did not talk about was the memory from last time  
+One thing we did not talk about was the memory from last time  
 
 ![Alt text](img/Lecture03/image.png)  
 
