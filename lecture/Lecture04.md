@@ -9,11 +9,11 @@
 
 ![Alt text](img/Lecture04/image-1.png)  
 
-APIC: ... Interrupt controller  
+APIC: Advanced Programmable Interrupt controller  
 
 4 CPUs that have a shared bus. Bus moves the bits around. If an interrupt needs to be moved from one CPU to the other, use the bus  
 
-*Remember*: INterrupt == HW  
+*Remember*: Interrupt == HW  
 
 How does a CPU know an interrupt on the bus is its own?  
 * Bus has to have address lines. That way, if interrupt is in CPU0's address, CPU0 knows it has an interrupt   
