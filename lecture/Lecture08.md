@@ -4,6 +4,7 @@
 ## Synchronization  
 
 *No slides?*  
+<img src=img/Lecture08/bitchless.png alt="drawing" width="200"/>
 
 System consists of objects AND activities
 
