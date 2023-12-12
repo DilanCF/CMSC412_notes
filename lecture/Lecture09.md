@@ -123,7 +123,7 @@ Always must have wait before signal
 
 ![Alt text](img/Lecture09/image-12.png)  
 
-[Video](youtube.com/watch?v=ufdQ0GR855M&ab_channel=NesoAcademy)
+[Video](https://www.youtube.com/watch?v=ufdQ0GR855M&ab_channel=NesoAcademy)
 
 ![Alt text](img/Lecture09/image-13.png)  
 
