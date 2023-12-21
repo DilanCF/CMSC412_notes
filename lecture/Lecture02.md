@@ -4,8 +4,7 @@
 ## Introduction  
 
 *TODO*: Review 216 videos  
-
-Prof has been teaching for 53 years and cannot get projector to work :))))  
+ 
 
 What *is* a computer system?  
 

@@ -100,8 +100,6 @@ Since we cant have large main memory, we must have secondary storage
 
 Having offline ones
 
-*watch from 30 min to hear him waffle on about old storage things :))*  
-
 Magnetic disks remain "dominant" for the past few decades
 * Secondary because hey are not connected to the CPU ???  
 
